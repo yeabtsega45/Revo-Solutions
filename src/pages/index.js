@@ -3,7 +3,8 @@ import MainLayout from "../layouts/main";
 import WorkWithoutFilter from "../components/Work-Without-Filter";
 import IntroWithVertical2 from "../components/Intro-with-vertical2";
 import AboutUs5 from "../components/About-Us5";
-import Services5 from "../components/Services5";
+import Process2 from "../components/Process2";
+// import Services5 from "../components/Services5";
 
 const Home = () => {
   React.useEffect(() => {
@@ -13,7 +14,8 @@ const Home = () => {
     <MainLayout>
       <IntroWithVertical2 />
       <AboutUs5 />
-      <Services5 />
+      {/* <Services5 /> */}
+      <Process2 />
       <WorkWithoutFilter />
     </MainLayout>
   );
