@@ -39,7 +39,7 @@ const AboutUs5 = () => {
           </div>
         </div>
       </div>
-      <div className="container-fluid office">
+      {/* <div className="container-fluid office">
         <div className="row">
           <div className="col-lg-3 lg-padding">
             <div
@@ -60,7 +60,7 @@ const AboutUs5 = () => {
             ></div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
