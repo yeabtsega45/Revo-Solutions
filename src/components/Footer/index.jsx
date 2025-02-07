@@ -40,7 +40,7 @@ const Footer = ({ classText }) => {
           <div className="col-lg-4">
             <div className="item md-mb50">
               <div className="title">
-                <h5>Recent News</h5>
+                <h5>Recent Projects</h5>
               </div>
               <ul>
                 <li>
@@ -56,8 +56,8 @@ const Footer = ({ classText }) => {
                     <Link href="/blog-details">
                       <a>
                         <p>
-                          The Start-Up Ultimate Guide to Make Your WordPress
-                          Journal.
+                          Full website design and development for Zelealem
+                          Eshetu Coffee.
                         </p>
                       </a>
                     </Link>
@@ -76,8 +76,8 @@ const Footer = ({ classText }) => {
                     <Link href="/blog-details">
                       <a>
                         <p>
-                          The Start-Up Ultimate Guide to Make Your WordPress
-                          Journal.
+                          Branding and crafting authenticity for BLU Casting
+                          Agency.
                         </p>
                       </a>
                     </Link>
@@ -121,13 +121,7 @@ const Footer = ({ classText }) => {
                 </Link>
               </div>
               <div className="copy-right">
-                <p>
-                  © 2025, Revo Solutions. Made with passion by {""}
-                  <Link href="https://yeabtsega-portfolio.netlify.app/">
-                    Yeabtsega Yeshidnber
-                  </Link>
-                  .
-                </p>
+                <p>© 2025, Revo Solutions.</p>
               </div>
             </div>
           </div>

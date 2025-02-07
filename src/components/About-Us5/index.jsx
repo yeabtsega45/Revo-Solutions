@@ -20,9 +20,9 @@ const AboutUs5 = () => {
               <Split>
                 <p className="wow txt words chars splitting" data-splitting>
                   We are in the business of creating effective digital solutions
-                  that move companies forward in their goals. And through the
-                  power of technology, we open up opportunities’ companies may
-                  not have yet considered in their growth strategy.
+                  that move companies forward in their goals. We open up
+                  opportunities companies may not have yet considered in their
+                  growth strategy.
                 </p>
               </Split>
               <div className="exp">

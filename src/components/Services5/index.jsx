@@ -14,8 +14,8 @@ const Services5 = () => {
             <span className="icon flaticon-home"></span>
             <h6 className="mb-20">Websites</h6>
             <p>
-              Cras mollis turpis a ipsum ultes, nec cond imentum ipsum
-              consequat.
+              High-quality Web Design and Development Services in the digital
+              age.
             </p>
             <Link href="/about">
               <a className="more mt-30">Read More</a>
@@ -26,8 +26,8 @@ const Services5 = () => {
             <span className="icon flaticon-kitchen-2"></span>
             <h6 className="mb-20">Branding</h6>
             <p>
-              Cras mollis turpis a ipsum ultes, nec cond imentum ipsum
-              consequat.
+              Helping your brand craft an authentic image, on a journey to
+              authenticity
             </p>
             <Link href="/about">
               <a className="more mt-30">Read More</a>
@@ -38,8 +38,8 @@ const Services5 = () => {
             <span className="icon flaticon-plan"></span>
             <h6 className="mb-20">Digital Marketing</h6>
             <p>
-              Cras mollis turpis a ipsum ultes, nec cond imentum ipsum
-              consequat.
+              Services including Digital Solutions, SEO Marketing, Creative
+              Strategy.
             </p>
             <Link href="/about">
               <a className="more mt-30">Read More</a>
@@ -50,8 +50,8 @@ const Services5 = () => {
             <span className="icon flaticon-renovation"></span>
             <h6 className="mb-20">Ticket System</h6>
             <p>
-              Cras mollis turpis a ipsum ultes, nec cond imentum ipsum
-              consequat.
+              Improve customer service, increase efficiency, and improve
+              collaboration.
             </p>
             <Link href="/about">
               <a className="more mt-30">Read More</a>
