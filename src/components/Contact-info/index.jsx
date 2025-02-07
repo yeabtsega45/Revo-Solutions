@@ -10,7 +10,7 @@ const ContactInfo = () => {
               <span className="icon pe-7s-phone"></span>
               <div className="cont">
                 <h6 className="custom-font">Call Us</h6>
-                <p>+7 (111) 1234 56789</p>
+                <p>+251934074990</p>
                 <p>+1 (000) 9876 54321</p>
               </div>
             </div>
@@ -20,7 +20,7 @@ const ContactInfo = () => {
               <span className="icon pe-7s-mail-open"></span>
               <div className="cont">
                 <h6 className="custom-font">Email Us</h6>
-                <p>contact@Archo.com</p>
+                <p>Kirubel1sh@gmail.com</p>
                 <p>Username@website.com</p>
               </div>
             </div>
@@ -30,10 +30,7 @@ const ContactInfo = () => {
               <span className="icon pe-7s-map"></span>
               <div className="cont">
                 <h6 className="custom-font">Address</h6>
-                <p>
-                  B17 Princess Road, London, Greater London NW18JR, United
-                  Kingdom
-                </p>
+                <p>Bole Infront of harmony hotel, LG Building 6th floor</p>
               </div>
             </div>
           </div>

@@ -9,6 +9,18 @@ const Footer = ({ classText }) => {
         <div className="row">
           <div className="col-lg-4">
             <div className="item md-mb50">
+              <div className="logo">
+                <img src="/assets/img/revo_logo.gif" alt="" />
+              </div>
+              <p>
+                We are in the business of creating effective digital solutions
+                that move companies forward in their goals.
+              </p>
+            </div>
+          </div>
+
+          <div className="col-lg-4">
+            <div className="item md-mb50">
               <div className="title">
                 <h5>Contact Us</h5>
               </div>
@@ -37,66 +49,11 @@ const Footer = ({ classText }) => {
               </ul>
             </div>
           </div>
-          <div className="col-lg-4">
-            <div className="item md-mb50">
-              <div className="title">
-                <h5>Recent Projects</h5>
-              </div>
-              <ul>
-                <li>
-                  <div className="img">
-                    <Link href="/blog-details">
-                      <a>
-                        <img src="/assets/img/blog/1.jpg" alt="" />
-                      </a>
-                    </Link>
-                  </div>
 
-                  <div className="sm-post">
-                    <Link href="/blog-details">
-                      <a>
-                        <p>
-                          Full website design and development for Zelealem
-                          Eshetu Coffee.
-                        </p>
-                      </a>
-                    </Link>
-                    <span className="date">14 Jan 2022</span>
-                  </div>
-                </li>
-                <li>
-                  <div className="img">
-                    <Link href="/blog-details">
-                      <a>
-                        <img src="/assets/img/blog/2.jpg" alt="" />
-                      </a>
-                    </Link>
-                  </div>
-                  <div className="sm-post">
-                    <Link href="/blog-details">
-                      <a>
-                        <p>
-                          Branding and crafting authenticity for BLU Casting
-                          Agency.
-                        </p>
-                      </a>
-                    </Link>
-                    <span className="date">14 Jan 2022</span>
-                  </div>
-                </li>
-                <li>
-                  <div className="subscribe">
-                    <input type="text" placeholder="Type Your Email" />
-                    <span className="subs pe-7s-paper-plane"></span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
           <div className="col-lg-4">
             <div className="item">
-              <div className="logo">
-                <img src="/assets/img/revo_logo.gif" alt="" />
+              <div className="title">
+                <h5>Social</h5>
               </div>
               <div className="social">
                 <Link href="#">

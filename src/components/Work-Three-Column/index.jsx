@@ -18,13 +18,14 @@ const WorkThreeColumn = () => {
               <span data-filter="*" className="active">
                 All
               </span>
-              <span data-filter=".interior">Interior</span>
-              <span data-filter=".theaters">Theaters</span>
-              <span data-filter=".residential">Residential</span>
+              <span data-filter=".digital">Digital Marketing</span>
+              <span data-filter=".branding">Branding</span>
+              <span data-filter=".websites">Websites</span>
+              <span data-filter=".ticket">Ticket System</span>
             </div>
           </div>
           <div className="row gallery">
-            <div className="col-lg-4 col-md-6 items theaters">
+            <div className="col-lg-4 col-md-6 items branding">
               <div className="item">
                 <div className="img">
                   <img src="/assets/img/works/col/2.jpg" alt="" />
@@ -38,7 +39,7 @@ const WorkThreeColumn = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 items residential interior">
+            <div className="col-lg-4 col-md-6 items websites digital">
               <div className="item">
                 <div className="img">
                   <img src="/assets/img/works/col/1.jpg" alt="" />
@@ -52,7 +53,7 @@ const WorkThreeColumn = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 items interior">
+            <div className="col-lg-4 col-md-6 items digital">
               <div className="item">
                 <div className="img">
                   <img src="/assets/img/works/col/5.jpg" alt="" />
@@ -66,7 +67,7 @@ const WorkThreeColumn = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 items residential">
+            <div className="col-lg-4 col-md-6 items websites">
               <div className="item">
                 <div className="img">
                   <img src="/assets/img/works/col/3.jpg" alt="" />
@@ -80,7 +81,7 @@ const WorkThreeColumn = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 items theaters">
+            <div className="col-lg-4 col-md-6 items branding">
               <div className="item">
                 <div className="img">
                   <img src="/assets/img/works/col/4.jpg" alt="" />
@@ -94,7 +95,7 @@ const WorkThreeColumn = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 items residential">
+            <div className="col-lg-4 col-md-6 items websites">
               <div className="item">
                 <div className="img">
                   <img src="/assets/img/works/col/6.jpg" alt="" />
@@ -108,7 +109,7 @@ const WorkThreeColumn = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 items residential interior">
+            <div className="col-lg-4 col-md-6 items websites digital">
               <div className="item">
                 <div className="img">
                   <img src="/assets/img/works/col/1.jpg" alt="" />
@@ -122,7 +123,7 @@ const WorkThreeColumn = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 items interior">
+            <div className="col-lg-4 col-md-6 items digital">
               <div className="item">
                 <div className="img">
                   <img src="/assets/img/works/col/5.jpg" alt="" />
@@ -136,7 +137,7 @@ const WorkThreeColumn = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 items residential">
+            <div className="col-lg-4 col-md-6 items websites">
               <div className="item">
                 <div className="img">
                   <img src="/assets/img/works/col/3.jpg" alt="" />
@@ -149,6 +150,21 @@ const WorkThreeColumn = () => {
                   <span>Modern</span>
                 </div>
               </div>
+            </div>
+            <div className="pagination">
+              <span className="active">
+                <Link href="#">1</Link>
+              </span>
+              <span>
+                <Link href="#">2</Link>
+              </span>
+              <span>
+                <Link href="#">
+                  <a>
+                    <i className="fas fa-angle-right"></i>
+                  </a>
+                </Link>
+              </span>
             </div>
           </div>
         </div>
