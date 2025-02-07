@@ -25,10 +25,10 @@ const WorkWithoutFilter = ({ vis }) => {
                   <img src="/assets/img/works/2.jpg" alt="" />
                 </div>
                 <div className={`cont ${vis ? "vis" : ""}`}>
-                  <span>Architecture</span>
+                  <span>Website</span>
                   <span>Modern</span>
                   <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
+                    <Link href="/project-details">Zelealem Eshetu Coffee</Link>
                   </h5>
                 </div>
               </div>
@@ -39,10 +39,10 @@ const WorkWithoutFilter = ({ vis }) => {
                   <img src="/assets/img/works/1.jpg" alt="" />
                 </div>
                 <div className={`cont ${vis ? "vis" : ""}`}>
-                  <span>Architecture</span>
+                  <span>Branding</span>
                   <span>Modern</span>
                   <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
+                    <Link href="/project-details">BLU Casting Agency</Link>
                   </h5>
                 </div>
               </div>
@@ -53,10 +53,10 @@ const WorkWithoutFilter = ({ vis }) => {
                   <img src="/assets/img/works/5.jpg" alt="" />
                 </div>
                 <div className={`cont ${vis ? "vis" : ""}`}>
-                  <span>Architecture</span>
+                  <span>Social Media</span>
                   <span>Modern</span>
                   <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
+                    <Link href="/project-details">Jorka Events</Link>
                   </h5>
                 </div>
               </div>
@@ -67,10 +67,10 @@ const WorkWithoutFilter = ({ vis }) => {
                   <img src="/assets/img/works/3.jpg" alt="" />
                 </div>
                 <div className={`cont ${vis ? "vis" : ""}`}>
-                  <span>Architecture</span>
+                  <span>Ticket System</span>
                   <span>Modern</span>
                   <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
+                    <Link href="/project-details">Gize Concert 2</Link>
                   </h5>
                 </div>
               </div>

@@ -16,22 +16,22 @@ const Footer = ({ classText }) => {
                 <li>
                   <span className="icon pe-7s-map-marker"></span>
                   <div className="cont">
-                    <h6>Officeal Address</h6>
-                    <p>504 White St . Dawsonville, GA 30534 , New York</p>
+                    <h6>Official Address</h6>
+                    <p>Bole Infront of harmony hotel, LG Building 6th floor</p>
                   </div>
                 </li>
                 <li>
                   <span className="icon pe-7s-mail"></span>
                   <div className="cont">
                     <h6>Email Us</h6>
-                    <p>support@gmail.com</p>
+                    <p> Kirubel1sh@gmail.com</p>
                   </div>
                 </li>
                 <li>
                   <span className="icon pe-7s-call"></span>
                   <div className="cont">
                     <h6>Call Us</h6>
-                    <p>+87986451666</p>
+                    <p>+251934074990</p>
                   </div>
                 </li>
               </ul>
@@ -96,7 +96,7 @@ const Footer = ({ classText }) => {
           <div className="col-lg-4">
             <div className="item">
               <div className="logo">
-                <img src="/assets/img/logo-light.png" alt="" />
+                <img src="/assets/img/revo_logo.gif" alt="" />
               </div>
               <div className="social">
                 <Link href="#">
@@ -122,8 +122,11 @@ const Footer = ({ classText }) => {
               </div>
               <div className="copy-right">
                 <p>
-                  © 2022, Arch Template. Made with passion by
-                  <Link href="#">ThemesCamp</Link>.
+                  © 2025, Revo Solutions. Made with passion by {""}
+                  <Link href="https://yeabtsega-portfolio.netlify.app/">
+                    Yeabtsega Yeshidnber
+                  </Link>
+                  .
                 </p>
               </div>
             </div>

@@ -12,7 +12,7 @@ const Services5 = () => {
         <div className="row bord-box wow fadeInUp">
           <div className="col-lg-3 col-md-6 item-bx">
             <span className="icon flaticon-home"></span>
-            <h6 className="mb-20">Architecture</h6>
+            <h6 className="mb-20">Websites</h6>
             <p>
               Cras mollis turpis a ipsum ultes, nec cond imentum ipsum
               consequat.
@@ -24,7 +24,7 @@ const Services5 = () => {
 
           <div className="col-lg-3 col-md-6 item-bx">
             <span className="icon flaticon-kitchen-2"></span>
-            <h6 className="mb-20">Interior Design</h6>
+            <h6 className="mb-20">Branding</h6>
             <p>
               Cras mollis turpis a ipsum ultes, nec cond imentum ipsum
               consequat.
@@ -36,7 +36,7 @@ const Services5 = () => {
 
           <div className="col-lg-3 col-md-6 item-bx">
             <span className="icon flaticon-plan"></span>
-            <h6 className="mb-20">3D Modeling</h6>
+            <h6 className="mb-20">Digital Marketing</h6>
             <p>
               Cras mollis turpis a ipsum ultes, nec cond imentum ipsum
               consequat.
@@ -48,7 +48,7 @@ const Services5 = () => {
 
           <div className="col-lg-3 col-md-6 item-bx">
             <span className="icon flaticon-renovation"></span>
-            <h6 className="mb-20">Repair</h6>
+            <h6 className="mb-20">Ticket System</h6>
             <p>
               Cras mollis turpis a ipsum ultes, nec cond imentum ipsum
               consequat.
