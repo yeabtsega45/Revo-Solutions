@@ -10,7 +10,7 @@ const AboutUs5 = () => {
             <div className="main-tit">
               <Split>
                 <h2 className="wow words chars splitting" data-splitting>
-                  We Are The Leader <br /> In The Architectural
+                  We Are The Leader <br /> In The Digital Marketing
                 </h2>
               </Split>
             </div>
@@ -19,14 +19,14 @@ const AboutUs5 = () => {
             <div className="content">
               <Split>
                 <p className="wow txt words chars splitting" data-splitting>
-                  Quisque massa ipsum, luctus at tempus eleifend congue quis
-                  lectus. Morbi bibendum nisl id porttitor ultrices odio elit
-                  vestibulum metus, ac semper velit quam sed nulla aenean eu
-                  hendreritt.
+                  We are in the business of creating effective digital solutions
+                  that move companies forward in their goals. And through the
+                  power of technology, we open up opportunities’ companies may
+                  not have yet considered in their growth strategy.
                 </p>
               </Split>
               <div className="exp">
-                <h3 className="">25</h3>
+                <h3 className="">5</h3>
                 <h5 className=" valign">
                   <Split>
                     <span className="wow words chars splitting" data-splitting>

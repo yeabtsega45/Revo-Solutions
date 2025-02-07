@@ -19,10 +19,10 @@ const MainLayout = ({ children, logoClassText }) => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
         navbar.classList.add("nav-scroll");
-        logo.setAttribute("src", "/assets/img/logo-light.png");
+        logo.setAttribute("src", "/assets/img/revo_logo.gif");
       } else {
         navbar.classList.remove("nav-scroll");
-        logo.setAttribute("src", "/assets/img/logo-light.png");
+        logo.setAttribute("src", "/assets/img/revo_logo.gif");
       }
     });
   }, [navbarRef]);
