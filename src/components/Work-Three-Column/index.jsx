@@ -151,21 +151,22 @@ const WorkThreeColumn = () => {
                 </div>
               </div>
             </div>
-            <div className="pagination">
-              <span className="active">
-                <Link href="#">1</Link>
-              </span>
-              <span>
-                <Link href="#">2</Link>
-              </span>
-              <span>
-                <Link href="#">
-                  <a>
-                    <i className="fas fa-angle-right"></i>
-                  </a>
-                </Link>
-              </span>
-            </div>
+          </div>
+
+          <div className="pagination blog-pg section-padding">
+            <span className="active">
+              <Link href="#">1</Link>
+            </span>
+            <span>
+              <Link href="#">2</Link>
+            </span>
+            <span>
+              <Link href="#">
+                <a>
+                  <i className="fas fa-angle-right"></i>
+                </a>
+              </Link>
+            </span>
           </div>
         </div>
       </section>

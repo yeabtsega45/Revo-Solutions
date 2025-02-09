@@ -9,18 +9,6 @@ const Footer = ({ classText }) => {
         <div className="row">
           <div className="col-lg-4">
             <div className="item md-mb50">
-              <div className="logo">
-                <img src="/assets/img/revo_logo.gif" alt="" />
-              </div>
-              <p>
-                We are in the business of creating effective digital solutions
-                that move companies forward in their goals.
-              </p>
-            </div>
-          </div>
-
-          <div className="col-lg-4">
-            <div className="item md-mb50">
               <div className="title">
                 <h5>Contact Us</h5>
               </div>
@@ -80,6 +68,18 @@ const Footer = ({ classText }) => {
               <div className="copy-right">
                 <p>© 2025, Revo Solutions.</p>
               </div>
+            </div>
+          </div>
+
+          <div className="col-lg-4">
+            <div className="item md-mb50">
+              <div className="logo">
+                <img src="/assets/img/revo_logo.gif" alt="" />
+              </div>
+              <p>
+                We are in the business of creating effective digital solutions
+                that move companies forward in their goals.
+              </p>
             </div>
           </div>
         </div>
