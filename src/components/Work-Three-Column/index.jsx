@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import initIsotope from "../../common/initIsotope";
+import { works } from "@/src/data/works";
 
 const WorkThreeColumn = () => {
   React.useEffect(() => {
@@ -25,135 +26,29 @@ const WorkThreeColumn = () => {
             </div>
           </div>
           <div className="row gallery">
-            <div className="col-lg-4 col-md-6 items branding">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/col/2.jpg" alt="" />
-                </div>
-                <div className="cont">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 items websites digital">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/col/1.jpg" alt="" />
-                </div>
-                <div className="cont">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
+            {works.map((item) => (
+              <div
+                key={item.id}
+                className={`col-lg-4 col-md-6 items ${item.category}`}
+              >
+                <div className="item">
+                  <div className="img">
+                    <img src={item.imgSrc} alt={item.title} />
+                  </div>
+                  <div className="cont">
+                    <h5>
+                      <Link href="/project-details">{item.title}</Link>
+                    </h5>
+                    {item.tags.map((tag, index) => (
+                      <span key={index}>{tag}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-4 col-md-6 items digital">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/col/5.jpg" alt="" />
-                </div>
-                <div className="cont">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 items websites">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/col/3.jpg" alt="" />
-                </div>
-                <div className="cont">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 items branding">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/col/4.jpg" alt="" />
-                </div>
-                <div className="cont">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 items websites">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/col/6.jpg" alt="" />
-                </div>
-                <div className="cont">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 items websites digital">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/col/1.jpg" alt="" />
-                </div>
-                <div className="cont">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 items digital">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/col/5.jpg" alt="" />
-                </div>
-                <div className="cont">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 items websites">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/col/3.jpg" alt="" />
-                </div>
-                <div className="cont">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
-          <div className="pagination blog-pg section-padding">
+          <div className="pagination">
             <span className="active">
               <Link href="#">1</Link>
             </span>
