@@ -63,3 +63,36 @@ export const works = [
     tags: ["Architecture", "Modern"],
   },
 ];
+
+export const workData = [
+  {
+    img: "/assets/img/works/2.jpg",
+    category: ["Website", "Modern"],
+    title: "Zelealem Eshetu Coffee",
+    link: "/project-details",
+  },
+  {
+    img: "/assets/img/works/1.jpg",
+    category: ["Branding", "Modern"],
+    title: "BLU Casting Agency",
+    link: "/project-details",
+  },
+  {
+    img: "/assets/img/works/5.jpg",
+    category: ["Social Media", "Modern"],
+    title: "Jorka Events",
+    link: "/project-details",
+  },
+  {
+    img: "/assets/img/works/3.jpg",
+    category: ["Ticket System", "Modern"],
+    title: "Gize Concert 2",
+    link: "/project-details",
+  },
+  {
+    img: "/assets/img/works/4.jpg",
+    category: ["Architecture", "Modern"],
+    title: "Modern Townhouse",
+    link: "/project-details",
+  },
+];

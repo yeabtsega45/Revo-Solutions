@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import initIsotope from "../../common/initIsotope";
+import { workData } from "@/src/data/works";
 
 const WorkWithoutFilter = ({ vis }) => {
   React.useEffect(() => {
@@ -9,6 +10,7 @@ const WorkWithoutFilter = ({ vis }) => {
       if (window.Isotope) initIsotope();
     }, 1000);
   }, []);
+
   return (
     <>
       <section className="works section-padding">
@@ -19,76 +21,23 @@ const WorkWithoutFilter = ({ vis }) => {
                 <h3>Works.</h3>
               </div>
             </div>
-            <div className="col-md-6 items">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/2.jpg" alt="" />
-                </div>
-                <div className={`cont ${vis ? "vis" : ""}`}>
-                  <span>Website</span>
-                  <span>Modern</span>
-                  <h5>
-                    <Link href="/project-details">Zelealem Eshetu Coffee</Link>
-                  </h5>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 items">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/1.jpg" alt="" />
-                </div>
-                <div className={`cont ${vis ? "vis" : ""}`}>
-                  <span>Branding</span>
-                  <span>Modern</span>
-                  <h5>
-                    <Link href="/project-details">BLU Casting Agency</Link>
-                  </h5>
+            {workData.slice(0, 5).map((work, index) => (
+              <div className="col-md-6 items" key={index}>
+                <div className="item">
+                  <div className="img">
+                    <img src={work.img} alt={work.title} />
+                  </div>
+                  <div className={`cont ${vis ? "vis" : ""}`}>
+                    {work.category.map((cat, i) => (
+                      <span key={i}>{cat}</span>
+                    ))}
+                    <h5>
+                      <Link href={work.link}>{work.title}</Link>
+                    </h5>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-md-6 items">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/5.jpg" alt="" />
-                </div>
-                <div className={`cont ${vis ? "vis" : ""}`}>
-                  <span>Social Media</span>
-                  <span>Modern</span>
-                  <h5>
-                    <Link href="/project-details">Jorka Events</Link>
-                  </h5>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 items">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/3.jpg" alt="" />
-                </div>
-                <div className={`cont ${vis ? "vis" : ""}`}>
-                  <span>Ticket System</span>
-                  <span>Modern</span>
-                  <h5>
-                    <Link href="/project-details">Gize Concert 2</Link>
-                  </h5>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 items">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/4.jpg" alt="" />
-                </div>
-                <div className={`cont ${vis ? "vis" : ""}`}>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

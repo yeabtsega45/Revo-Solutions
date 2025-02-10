@@ -2781,6 +2781,8 @@ body {
 .works.three-col .row {
   margin-left: -10px;
   margin-right: -10px;
+  min-height: 500px; /* Adjust based on the expected height */
+  transition: min-height 0.3s ease-in-out;
 }
 
 .works.three-col .items {
