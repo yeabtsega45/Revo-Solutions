@@ -1,8 +1,17 @@
 import React from "react";
 import Split from "../Split";
 import Link from "next/link";
+import { workData } from "@/src/data/works";
 
-const NextProject = () => {
+const NextProject = ({ selectedWork }) => {
+  if (!selectedWork) return null;
+
+  const currentIndex = workData.findIndex(
+    (work) => work.id === selectedWork.id
+  );
+  const nextIndex = (currentIndex + 1) % workData.length; // Loops back to the first project if at the end
+  const nextWork = workData[nextIndex];
+
   return (
     <section className="call-action nogif next">
       <div className="container">
@@ -25,7 +34,7 @@ const NextProject = () => {
                       className="wow txt words chars splitting"
                       data-splitting
                     >
-                      <b> Luxury </b> Furniture
+                      <b>{nextWork.title}</b>
                     </h2>
                   </Split>
                 </a>
@@ -37,6 +46,7 @@ const NextProject = () => {
       <div
         className="nxt-img bg-img"
         data-background="img/portfolio/project1/bg.jpg"
+        // style={{ backgroundImage: `url(${nextWork.img})` }}
       ></div>
     </section>
   );

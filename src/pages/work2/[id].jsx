@@ -4,9 +4,10 @@ import MainLayout from "../../layouts/main";
 import PageHeader from "../../components/Page-header";
 import ProjectIntro from "../../components/Project-Intro";
 import NextProject from "../../components/Next-Project";
-import ProjectVideo from "../../components/Project-Video";
+// import ProjectVideo from "../../components/Project-Video";
 import { useRouter } from "next/router";
 import { workData } from "@/src/data/works";
+import PlaceholderImage from "../../components/Project-Video/placeholderImage";
 
 const ProjectDetails = () => {
   const router = useRouter();
@@ -16,9 +17,7 @@ const ProjectDetails = () => {
     document.querySelector("body").classList.add("index3");
   }, []);
 
-  const selectedWork = workData.find(
-    (work) => work.id.toString() === params.id
-  );
+  const selectedWork = workData.find((work) => work.id.toString() === id);
 
   return (
     <MainLayout>
@@ -26,7 +25,7 @@ const ProjectDetails = () => {
         title={selectedWork.title}
         fullPath={[
           { id: 1, name: "home", url: "/" },
-          { id: 2, name: "portfolio", url: "/work2" },
+          { id: 2, name: "work", url: "/work2" },
           { id: 3, name: "project details", url: "/work2/" + selectedWork.id },
         ]}
         image="/assets/img/portfolio/project1/bg.jpg"
@@ -51,7 +50,8 @@ const ProjectDetails = () => {
         </div>
       </section>
 
-      <ProjectVideo />
+      {/* <ProjectVideo /> */}
+      <PlaceholderImage />
 
       <section className="projdtal">
         <div className="justified-gallery">
@@ -64,7 +64,7 @@ const ProjectDetails = () => {
         </div>
       </section>
 
-      <NextProject />
+      <NextProject selectedWork={selectedWork} />
     </MainLayout>
   );
 };
