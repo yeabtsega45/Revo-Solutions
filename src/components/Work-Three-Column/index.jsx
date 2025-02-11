@@ -92,24 +92,21 @@ const WorkThreeColumn = () => {
 
           <div className="row gallery">
             {currentItems.map((item) => (
-              <div
-                key={item.id}
-                className={`col-lg-4 col-md-6 items ${item.category}`}
-              >
-                <div className="item">
-                  <div className="img">
-                    <img src={item.imgSrc} alt={item.title} />
-                  </div>
-                  <div className="cont">
-                    <h5>
-                      <Link href="/project-details">{item.title}</Link>
-                    </h5>
-                    {item.tags.map((tag, index) => (
-                      <span key={index}>{tag}</span>
-                    ))}
+              <Link href="/project-details" key={item.id} passHref>
+                <div className={`col-lg-4 col-md-6 items ${item.category}`}>
+                  <div className="item">
+                    <div className="img">
+                      <img src={item.imgSrc} alt={item.title} />
+                    </div>
+                    <div className="cont">
+                      <h5>{item.title}</h5>
+                      {item.tags.map((tag, index) => (
+                        <span key={index}>{tag}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 

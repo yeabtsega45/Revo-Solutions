@@ -66,33 +66,33 @@ export const works = [
 
 export const workData = [
   {
-    img: "/assets/img/works/2.jpg",
+    id: 1,
+    img: "/assets/img/works/1002-+-1503-1.png",
     category: ["Website", "Modern"],
     title: "Zelealem Eshetu Coffee",
-    link: "/project-details",
   },
   {
+    id: 2,
     img: "/assets/img/works/1.jpg",
     category: ["Branding", "Modern"],
     title: "BLU Casting Agency",
-    link: "/project-details",
   },
   {
-    img: "/assets/img/works/5.jpg",
+    id: 3,
+    img: "/assets/img/works/1002-+-1503-2.png",
     category: ["Social Media", "Modern"],
     title: "Jorka Events",
-    link: "/project-details",
   },
   {
+    id: 4,
     img: "/assets/img/works/3.jpg",
     category: ["Ticket System", "Modern"],
     title: "Gize Concert 2",
-    link: "/project-details",
   },
   {
+    id: 5,
     img: "/assets/img/works/4.jpg",
     category: ["Architecture", "Modern"],
     title: "Modern Townhouse",
-    link: "/project-details",
   },
 ];

@@ -22,21 +22,21 @@ const WorkWithoutFilter = ({ vis }) => {
               </div>
             </div>
             {workData.slice(0, 5).map((work, index) => (
-              <div className="col-md-6 items" key={index}>
-                <div className="item">
-                  <div className="img">
-                    <img src={work.img} alt={work.title} />
-                  </div>
-                  <div className={`cont ${vis ? "vis" : ""}`}>
-                    {work.category.map((cat, i) => (
-                      <span key={i}>{cat}</span>
-                    ))}
-                    <h5>
-                      <Link href={work.link}>{work.title}</Link>
-                    </h5>
+              <Link href={`/work2/${work.id}`} key={index} passHref>
+                <div className="col-md-6 items">
+                  <div className="item">
+                    <div className="img">
+                      <img src={work.img} alt={work.title} />
+                    </div>
+                    <div className={`cont ${vis ? "vis" : ""}`}>
+                      {work.category.map((cat, i) => (
+                        <span key={i}>{cat}</span>
+                      ))}
+                      <h5>{work.title}</h5>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
