@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ModalVideo from "react-modal-video";
 import "react-modal-video/css/modal-video.css";
 
 const ProjectVideo = () => {
-  React.useEffect(() => {
+  useEffect(() => {
     console.clear();
   }, []);
-  const [isOpen, setOpen] = React.useState(false);
+
+  const [isOpen, setOpen] = useState(false);
+
   return (
     <section>
       <div className="container-fluid">

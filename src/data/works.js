@@ -70,6 +70,12 @@ export const workData = [
     img: "/assets/img/works/1002-+-1503-1.png",
     category: ["Website", "Modern"],
     title: "Zelealem Eshetu Coffee",
+    client: "Envato.com",
+    date: "6 August 2022",
+    tags: ["Minimal", "Modern", "Design"],
+    description:
+      "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
+    // images:[{"files"}]
   },
   {
     id: 2,

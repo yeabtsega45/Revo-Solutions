@@ -1,27 +1,37 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useEffect } from "react";
 import MainLayout from "../../layouts/main";
 import PageHeader from "../../components/Page-header";
 import ProjectIntro from "../../components/Project-Intro";
 import NextProject from "../../components/Next-Project";
 import ProjectVideo from "../../components/Project-Video";
+import { useRouter } from "next/router";
+import { workData } from "@/src/data/works";
 
 const ProjectDetails = () => {
-  React.useEffect(() => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  useEffect(() => {
     document.querySelector("body").classList.add("index3");
   }, []);
+
+  const selectedWork = workData.find(
+    (work) => work.id.toString() === params.id
+  );
+
   return (
     <MainLayout>
       <PageHeader
-        title="Luxury Furniture"
+        title={selectedWork.title}
         fullPath={[
           { id: 1, name: "home", url: "/" },
-          { id: 2, name: "portfolio", url: "/work1" },
-          { id: 3, name: "project details", url: "/project-details" },
+          { id: 2, name: "portfolio", url: "/work2" },
+          { id: 3, name: "project details", url: "/work2/" + selectedWork.id },
         ]}
         image="/assets/img/portfolio/project1/bg.jpg"
       />
-      <ProjectIntro />
+      <ProjectIntro selectedWork={selectedWork} />
       <section className="projdtal">
         <div className="justified-gallery">
           <div className="row">
