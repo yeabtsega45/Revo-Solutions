@@ -67,7 +67,7 @@ export const works = [
 export const workData = [
   {
     id: 1,
-    img: "/assets/img/works/adult-harvesting-coffee-(1).jpg",
+    img: "/assets/img/works/1000-+-1188.png",
     category: ["Website", "Modern"],
     title: "Zelealem Eshetu Coffee",
     client: "Zelealem Eshetu Coffee",
