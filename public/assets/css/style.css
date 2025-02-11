@@ -2907,7 +2907,28 @@ body {
 .works .pagination span i {
   font-size: 18px;
 }
-
+.works .buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+.works .seeMoreButton {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: #212121;
+  font-size: 24px;
+  border: 1px solid;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.works .seeMoreButton:hover {
+  background: #333;
+  color: #c5a47e;
+}
 .portfolio {
   overflow: hidden;
   position: relative;

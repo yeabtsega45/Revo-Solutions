@@ -18,7 +18,7 @@ const NextProject = ({ selectedWork }) => {
         <div className="row">
           <div className="col-md-12">
             <div className="content text-center">
-              <Link href="/project-details">
+              <Link href={`/work2/${nextWork.id}`}>
                 <a>
                   <Split>
                     <h6

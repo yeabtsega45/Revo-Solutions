@@ -39,6 +39,12 @@ const WorkWithoutFilter = ({ vis }) => {
               </Link>
             ))}
           </div>
+
+          <div className="buttonContainer">
+            <Link href="/work2" passHref>
+              <button className="seeMoreButton">See More</button>
+            </Link>
+          </div>
         </div>
       </section>
     </>

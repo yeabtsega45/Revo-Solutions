@@ -35,11 +35,11 @@ const ProjectIntro = ({ selectedWork }) => {
             <div className="item mt-30">
               <h6>Categories</h6>
               <p>
-                {selectedWork.category.map((cat, i) => (
-                  <Link href="#" key={i}>
-                    {cat}
-                    {index < category.length - 1 && ", "}
-                  </Link>
+                {selectedWork.category.map((cat, index) => (
+                  <React.Fragment key={index}>
+                    <Link href="#">{cat}</Link>
+                    {index < selectedWork.category.length - 1 && ", "}
+                  </React.Fragment>
                 ))}
               </p>
             </div>
@@ -48,11 +48,11 @@ const ProjectIntro = ({ selectedWork }) => {
             <div className="item mt-30">
               <h6>Tags</h6>
               <p>
-                {selectedWork.tags.map((tag, i) => (
-                  <Link href="#" key={i}>
-                    {tag}
-                    {index < tags.length - 1 && ", "}
-                  </Link>
+                {selectedWork.tags.map((tag, index) => (
+                  <React.Fragment key={index}>
+                    <Link href="#">{tag}</Link>
+                    {index < selectedWork.tags.length - 1 && ", "}
+                  </React.Fragment>
                 ))}
               </p>
             </div>

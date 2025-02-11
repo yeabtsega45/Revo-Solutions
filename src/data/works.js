@@ -67,10 +67,10 @@ export const works = [
 export const workData = [
   {
     id: 1,
-    img: "/assets/img/works/1002-+-1503-1.png",
+    img: "/assets/img/works/adult-harvesting-coffee-(1).jpg",
     category: ["Website", "Modern"],
     title: "Zelealem Eshetu Coffee",
-    client: "Envato.com",
+    client: "Zelealem Eshetu Coffee",
     date: "6 August 2022",
     tags: ["Minimal", "Modern", "Design"],
     description:
@@ -79,26 +79,46 @@ export const workData = [
   },
   {
     id: 2,
-    img: "/assets/img/works/1.jpg",
+    img: "/assets/img/works/last-27-image.png",
     category: ["Branding", "Modern"],
-    title: "BLU Casting Agency",
+    title: "Twenty Seven Real Estate",
+    client: "Twenty Seven Real Estate",
+    date: "6 August 2022",
+    tags: ["Minimal", "Modern", "Design"],
+    description:
+      "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
   },
   {
     id: 3,
-    img: "/assets/img/works/1002-+-1503-2.png",
+    img: "/assets/img/works/rtr.png",
     category: ["Social Media", "Modern"],
-    title: "Jorka Events",
+    title: "Bet Afalagi",
+    client: "Envato.com",
+    date: "6 August 2022",
+    tags: ["Minimal", "Modern", "Design"],
+    description:
+      "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
   },
   {
     id: 4,
-    img: "/assets/img/works/3.jpg",
+    img: "/assets/img/works/last-isnpul-1.png",
     category: ["Ticket System", "Modern"],
-    title: "Gize Concert 2",
+    title: "Ethio-Istanbul General Hospital",
+    client: "Ethio-Istanbul General Hospital",
+    date: "6 August 2022",
+    tags: ["Minimal", "Modern", "Design"],
+    description:
+      "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
   },
   {
     id: 5,
-    img: "/assets/img/works/4.jpg",
+    img: "/assets/img/works/last-maya.png",
     category: ["Architecture", "Modern"],
-    title: "Modern Townhouse",
+    title: "Maya Speciality Dental Clinic",
+    client: "Envato.com",
+    date: "6 August 2022",
+    tags: ["Minimal", "Modern", "Design"],
+    description:
+      "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
   },
 ];
