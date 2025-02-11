@@ -19,6 +19,10 @@ const ProjectDetails = () => {
 
   const selectedWork = workData.find((work) => work.id.toString() === id);
 
+  if (!selectedWork) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <MainLayout>
       <PageHeader

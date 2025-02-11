@@ -2,6 +2,10 @@ import React from "react";
 import Link from "next/link";
 
 const ProjectIntro = ({ selectedWork }) => {
+  if (!selectedWork) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <section className="intro-section section-padding">
       <div className="container">
