@@ -1,9 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import LoadingScreen from "../Loading-Screen/loading-screen";
 
 const ProjectIntro = ({ selectedWork }) => {
   if (!selectedWork) {
-    return <p>Loading...</p>;
+    return <LoadingScreen />;
   }
 
   return (

@@ -8,6 +8,7 @@ import NextProject from "../../components/Next-Project";
 import { useRouter } from "next/router";
 import { workData } from "@/src/data/works";
 import PlaceholderImage from "../../components/Project-Video/placeholderImage";
+import LoadingScreen from "@/src/components/Loading-Screen/loading-screen";
 
 const ProjectDetails = () => {
   const router = useRouter();
@@ -20,7 +21,7 @@ const ProjectDetails = () => {
   const selectedWork = workData.find((work) => work.id.toString() === id);
 
   if (!selectedWork) {
-    return <p>Loading...</p>;
+    return <LoadingScreen />;
   }
 
   return (
