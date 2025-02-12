@@ -1,14 +1,15 @@
 /* eslint-disable @next/next/no-css-tags */
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import axios from "axios";
 import Sidebar from "@/src/components/Side-Bar/sidebar";
 
 function AdminLayout({ children }) {
   const router = useRouter();
   axios.defaults.withCredentials = true;
-  const token = localStorage.getItem("token");
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -25,15 +26,15 @@ function AdminLayout({ children }) {
         }
       })
       .catch((err) => {
-        router.push("/login");
+        router.push("/admin");
         console.log(err);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
-  if (!isLoggedIn) {
-    return null; // Render nothing if user is not an admin
-  }
+  //   if (!isLoggedIn) {
+  //     return <p>error</p>; // Render error if user is not an admin
+  //   }
 
   return (
     <>
@@ -43,9 +44,7 @@ function AdminLayout({ children }) {
       <div className="admin-container">
         <Sidebar />
         <div className="content">
-          <div className="header">
-            <h4>Admin Page</h4>
-          </div>
+          <h4>Revo Solutions</h4>
           {children}
         </div>
       </div>
