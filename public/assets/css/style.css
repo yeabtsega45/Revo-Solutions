@@ -5133,6 +5133,55 @@ footer .item .copy-right p a {
   color: red;
   text-align: center;
 }
+/* Admin.css */
+.admin-container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  transition: width 0.3s;
+}
+.sidebar .sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sidebar .nav-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.sidebar .nav-links li {
+  margin: 15px 0;
+}
+
+.sidebar .nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  display: block;
+}
+
+.sidebar .nav-links a:hover {
+  text-decoration: underline;
+}
+.admin-container .content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+.admin-container .header {
+  padding: 10px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
 /* ====================== [ End Footer ] ====================== */
 /* ====================== [ Start Responsive ] ====================== */
