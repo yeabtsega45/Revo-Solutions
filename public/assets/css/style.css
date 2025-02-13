@@ -5199,43 +5199,7 @@ footer .item .copy-right p a {
 .admin-container .content h4 {
   color: #c5a47e;
 }
-
-.work-form {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  margin: 20px auto;
-  font-family: Arial, sans-serif;
-}
-.work-form .form-group {
-  margin-bottom: 15px;
-}
-.work-form .form-group label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-}
-.work-form .form-group input,
-textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.work-form button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.work-form button:hover {
-  background-color: #0056b3;
-}
+/* Dark Mode */
 .theme-toggle {
   padding: 8px;
   color: inherit;
@@ -5243,6 +5207,93 @@ textarea {
 
 .theme-toggle:hover {
   opacity: 0.8;
+}
+/* Create Work Form */
+.work-form {
+  height: 100vh;
+  padding-top: 36px;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.work-form .title {
+  color: #212121;
+  border-bottom: 2px solid #c5a47e;
+  padding-bottom: 4px;
+}
+
+.work-form .form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 80%;
+  margin: 24px auto 0;
+}
+
+.work-form .form-fields {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.work-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.work-form .form-group .input-file {
+  width: 300px;
+  padding: 96px 32px;
+  color: #212121;
+  border: 1px solid #212121;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.work-form .form-group .label {
+  color: #212121;
+  margin-bottom: 4px;
+  text-align: start;
+  font-weight: bold;
+}
+
+.work-form .form-group .input,
+.work-form .form-group .textarea {
+  width: 400px;
+  padding: 8px;
+  color: #212121;
+  border: 1px solid #212121;
+  border-radius: 4px;
+}
+
+.work-form .form-group .input:focus,
+.work-form .form-group .textarea:focus {
+  outline: none;
+  border-color: #c5a47e;
+}
+
+.work-form .form-group .textarea {
+  height: 100px;
+}
+
+.work-form .button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.work-form .button {
+  padding: 8px 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #212121;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.work-form .button:hover {
+  background-color: #c5a47e;
 }
 
 /* ====================== [ End Footer ] ====================== */

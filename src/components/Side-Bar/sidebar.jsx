@@ -24,7 +24,7 @@ function Sidebar() {
       </div>
       <ul className="nav-links">
         <li className={isActiveLink("/admin")}>
-          <Link href="">Edit Works</Link>
+          <Link href="/admin">Edit Works</Link>
         </li>
         <li className={isActiveLink("/admin/create")}>
           <Link href="/admin/create">Create Work</Link>
