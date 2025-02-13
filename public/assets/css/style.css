@@ -5177,8 +5177,10 @@ footer .item .copy-right p a {
 .sidebar .nav-links li.active {
   background: rgba(255, 255, 255, 0.1);
   color: #c5a47e;
-  transform: translateX(5px);
+  /* transform: translateX(5px); */
   text-decoration: none;
+  border: 1px solid;
+  border-radius: 8px;
 }
 .sidebar .nav-links li:last-child a {
   color: #ff4d4d;
@@ -5192,10 +5194,47 @@ footer .item .copy-right p a {
   padding: 20px;
   background-color: #f4f4f4;
   text-align: center;
-  color: #212121;
+  overflow-y: auto;
 }
 .admin-container .content h4 {
   color: #c5a47e;
+}
+
+.form-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
 }
 
 /* ====================== [ End Footer ] ====================== */

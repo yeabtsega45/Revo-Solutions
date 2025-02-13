@@ -1,10 +1,11 @@
 import React from "react";
 import AdminLayout from "@/src/layouts/admin-layout";
+import EditWork from "@/src/components/Edit-Work";
 
 const Admin = () => {
   return (
     <AdminLayout>
-      <p>Welcome to the Admin Dashboard</p>
+      <EditWork />
     </AdminLayout>
   );
 };

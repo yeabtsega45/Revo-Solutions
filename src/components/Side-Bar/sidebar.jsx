@@ -24,12 +24,15 @@ function Sidebar() {
       </div>
       <ul className="nav-links">
         <li className={isActiveLink("/admin")}>
-          <Link href="">Works</Link>
+          <Link href="">Edit Works</Link>
         </li>
-        <li>
+        <li className={isActiveLink("/admin/create")}>
+          <Link href="/admin/create">Create Work</Link>
+        </li>
+        <li className={isActiveLink("/admin/analytics")}>
           <Link href="/admin/analytics">Analytics</Link>
         </li>
-        <li>
+        <li className={isActiveLink("/admin/user")}>
           <Link href="/admin/user">User Info</Link>
         </li>
         <li onClick={handleLogout}>
