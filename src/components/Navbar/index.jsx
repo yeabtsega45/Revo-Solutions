@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import appData from "../../data/app.json";
 import getSiblings from "../../common/getSiblings";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const Navbar = ({ navbarRef, logoRef, logoClass }) => {
   const handleDropdown = (e) => {
@@ -27,6 +28,8 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
       .getElementById("navbarSupportedContent")
       .classList.toggle("show-with-trans");
   };
+
+  const { isDarkMode, toggleTheme } = useTheme();
 
   return (
     <>
@@ -69,6 +72,23 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
                 <Link href="/contact">
                   <a className="nav-link">Contact</a>
                 </Link>
+              </li>
+              <li className="nav-item">
+                <button
+                  onClick={toggleTheme}
+                  className="nav-link theme-toggle"
+                  style={{
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  {isDarkMode ? (
+                    <i className="fas fa-sun"></i>
+                  ) : (
+                    <i className="fas fa-moon"></i>
+                  )}
+                </button>
               </li>
             </ul>
           </div>

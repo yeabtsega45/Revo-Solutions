@@ -26,7 +26,7 @@ function AdminLayout({ children }) {
         }
       })
       .catch((err) => {
-        router.push("/admin");
+        // router.push("/admin");
         console.log(err);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps

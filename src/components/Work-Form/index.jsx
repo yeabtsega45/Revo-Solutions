@@ -20,7 +20,7 @@ const WorkForm = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="work-form">
       <h2>Add Work Data</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

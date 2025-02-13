@@ -5200,7 +5200,7 @@ footer .item .copy-right p a {
   color: #c5a47e;
 }
 
-.form-container {
+.work-form {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -5209,22 +5209,22 @@ footer .item .copy-right p a {
   margin: 20px auto;
   font-family: Arial, sans-serif;
 }
-.form-group {
+.work-form .form-group {
   margin-bottom: 15px;
 }
-label {
+.work-form .form-group label {
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
 }
-input,
+.work-form .form-group input,
 textarea {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-button {
+.work-form button {
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -5233,8 +5233,16 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-button:hover {
+.work-form button:hover {
   background-color: #0056b3;
+}
+.theme-toggle {
+  padding: 8px;
+  color: inherit;
+}
+
+.theme-toggle:hover {
+  opacity: 0.8;
 }
 
 /* ====================== [ End Footer ] ====================== */
