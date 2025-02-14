@@ -36,6 +36,9 @@ const SingleWork = () => {
         image={selectedWork.introImage}
       />
       <ProjectIntro selectedWork={selectedWork} />
+
+      <PlaceholderImage image={selectedWork.largeImages[0].src} />
+
       <section className="projdtal">
         <div className="justified-gallery">
           <div className="row">
@@ -56,7 +59,7 @@ const SingleWork = () => {
       </section>
 
       {/* <ProjectVideo /> */}
-      <PlaceholderImage />
+      <PlaceholderImage image={selectedWork.largeImages[1].src} />
 
       <section className="projdtal">
         <div className="justified-gallery">
