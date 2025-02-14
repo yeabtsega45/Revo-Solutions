@@ -43,7 +43,7 @@ const ProjectIntro = ({ selectedWork }) => {
                 {selectedWork.category.map((cat, index) => (
                   <React.Fragment key={index}>
                     <Link href="#">{cat}</Link>
-                    {index < selectedWork.category.length - 1 && ", "}
+                    {index < selectedWork.category.length - 1 ? ", " : ""}
                   </React.Fragment>
                 ))}
               </p>
@@ -56,7 +56,7 @@ const ProjectIntro = ({ selectedWork }) => {
                 {selectedWork.tags.map((tag, index) => (
                   <React.Fragment key={index}>
                     <Link href="#">{tag}</Link>
-                    {index < selectedWork.tags.length - 1 && ", "}
+                    {index < selectedWork.tags.length - 1 ? ", " : ""}
                   </React.Fragment>
                 ))}
               </p>

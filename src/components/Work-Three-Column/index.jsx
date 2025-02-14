@@ -91,16 +91,16 @@ const WorkThreeColumn = () => {
           </div>
 
           <div className="row gallery">
-            {currentItems.map((item) => (
-              <Link href="/project-details" key={item.id} passHref>
-                <div className={`col-lg-4 col-md-6 items ${item.category}`}>
-                  <div className="item">
+            {currentItems.map((work) => (
+              <Link href={`/work/${work.id}`} key={work.id} passHref>
+                <div className={`col-lg-4 col-md-6 items ${work.category}`}>
+                  <div className="work">
                     <div className="img">
-                      <img src={item.imgSrc} alt={item.title} />
+                      <img src={work.imgSrc} alt={work.title} />
                     </div>
                     <div className="cont">
-                      <h5>{item.title}</h5>
-                      {item.tags.map((tag, index) => (
+                      <h5>{work.title}</h5>
+                      {work.tags.map((tag, index) => (
                         <span key={index}>{tag}</span>
                       ))}
                     </div>
