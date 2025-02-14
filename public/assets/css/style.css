@@ -5139,7 +5139,7 @@ footer .item .copy-right p a {
   height: 100vh;
 }
 .sidebar {
-  width: 400px;
+  width: 300px;
   background: linear-gradient(135deg, #1e1e1e, #343434);
   color: white;
   padding: 20px;
@@ -5149,7 +5149,7 @@ footer .item .copy-right p a {
 }
 .sidebar .sidebar-header {
   text-align: center;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: bold;
   padding-bottom: 20px;
   border-bottom: 1px solid #c5a47e;
@@ -5165,7 +5165,7 @@ footer .item .copy-right p a {
 .sidebar .nav-links a {
   text-decoration: none;
   color: white;
-  font-size: 22px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   padding: 12px 15px;
@@ -5214,6 +5214,7 @@ footer .item .copy-right p a {
   padding-top: 36px;
   padding-left: 80px;
   padding-right: 80px;
+  color: #212121;
 }
 
 .work-form .title {
@@ -5294,6 +5295,26 @@ footer .item .copy-right p a {
 
 .work-form .button:hover {
   background-color: #c5a47e;
+}
+
+.work-form .checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.work-form .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.work-form .checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
 
 /* ====================== [ End Footer ] ====================== */

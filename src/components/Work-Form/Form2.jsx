@@ -7,6 +7,8 @@ function WorkForm2() {
     client: "",
     description: "",
     image: "",
+    category: [],
+    tags: "",
   });
   //   const navigate = useNavigate();
 
@@ -16,6 +18,8 @@ function WorkForm2() {
     formdata.append("client", data.client);
     formdata.append("description", data.description);
     formdata.append("image", data.image);
+    formdata.append("category", data.category);
+    formdata.append("tags", data.tags);
     axios
       .post("/work/create", formdata)
       .then((res) => {
@@ -62,6 +66,58 @@ function WorkForm2() {
                 }
               />
             </div>
+          </div>
+        </div>
+        <div className="form-fields">
+          <div>
+            <div className="form-group">
+              <label className="label">Category</label>
+              <div className="checkbox-group">
+                {["Website", "Branding", "Digital Marketing"].map(
+                  (categoryItem) => (
+                    <label key={categoryItem} className="checkbox-label">
+                      <input
+                        type="checkbox"
+                        className="checkbox"
+                        value={categoryItem}
+                        checked={data.category.includes(categoryItem)}
+                        onChange={(e) => {
+                          const isChecked = e.target.checked;
+                          setData((prevData) => ({
+                            ...prevData,
+                            category: isChecked
+                              ? [...prevData.category, categoryItem]
+                              : prevData.category.filter(
+                                  (item) => item !== categoryItem
+                                ),
+                          }));
+                        }}
+                      />
+                      <span>{categoryItem}</span>
+                    </label>
+                  )
+                )}
+              </div>
+            </div>
+            <div className="form-group">
+              <label className="label">Tags</label>
+              <input
+                type="text"
+                className="input"
+                name="tags"
+                placeholder="write tags separated with comma"
+                autoComplete="off"
+                onChange={(e) => setData({ ...data, tags: e.target.value })}
+              />
+            </div>
+          </div>
+          <div className="form-group">
+            <input
+              type="file"
+              className="input-file"
+              name="image"
+              onChange={(e) => setData({ ...data, image: e.target.files[0] })}
+            />
           </div>
         </div>
         <div className="button-container">
