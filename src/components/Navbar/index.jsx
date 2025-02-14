@@ -74,30 +74,17 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <button
-                  onClick={toggleTheme}
-                  className="nav-link theme-toggle"
-                  style={{
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                  }}
-                >
-                  {isDarkMode ? (
-                    <i className="fas fa-sun"></i>
-                  ) : (
-                    <i className="fas fa-moon"></i>
-                  )}
-                </button>
-                {/* <label className="toggle-switch">
-                  <input
-                    type="checkbox"
-                    className="switch-checkbox"
-                    checked={isDarkMode}
-                    onChange={toggleTheme}
-                  />
-                  <span className="switch-slider"></span>
-                </label> */}
+                <div className="theme-switch">
+                  <label className="switch">
+                    🌙
+                    <input
+                      type="checkbox"
+                      checked={!isDarkMode}
+                      onChange={toggleTheme}
+                    />
+                    <span className="slider round"></span>☀️
+                  </label>
+                </div>
               </li>
             </ul>
           </div>

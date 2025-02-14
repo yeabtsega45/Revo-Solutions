@@ -3992,6 +3992,52 @@ footer .item .copy-right p a {
 .works .seeMoreButton:hover {
   color: #c5a47e;
 }
+
+/* Dark Mode Button */
+.theme-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 7px;
+  margin: 10px;
+}
+.theme-switch .switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.theme-switch .switch input {
+  display: none;
+}
+.theme-switch .slider {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+.theme-switch .slider::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+.theme-switch input:checked + .slider {
+  background-color: #4caf50;
+}
+.theme-switch input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
 /* ====================== [ End Footer ] ====================== */
 /* ====================== [ Start Responsive ] ====================== */
 @media screen and (max-width: 991px) {
