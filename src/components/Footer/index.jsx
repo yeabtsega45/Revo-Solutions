@@ -74,7 +74,7 @@ const Footer = ({ classText }) => {
           <div className="col-lg-4">
             <div className="item md-mb50">
               <div className="logo">
-                <img src="/assets/img/revo_logo.gif" alt="" />
+                <img src="/assets/img/revo-dark.png" alt="" />
               </div>
               <p>
                 We are in the business of creating effective digital solutions

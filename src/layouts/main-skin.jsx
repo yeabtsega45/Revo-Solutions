@@ -7,7 +7,7 @@ import Head from "next/head";
 const MainSkin = ({ children }) => {
   const navbarRef = React.useRef(null);
   const logoRef = React.useRef(null);
-  
+
   React.useEffect(() => {
     var navbar = navbarRef.current,
       logo = logoRef.current;
@@ -19,10 +19,10 @@ const MainSkin = ({ children }) => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
         navbar.classList.add("nav-scroll");
-        logo.setAttribute("src", "/assets/img/logo-light.png");
+        logo.setAttribute("src", "/assets/img/revo-dark.png");
       } else {
         navbar.classList.remove("nav-scroll");
-        logo.setAttribute("src", "/assets/img/logo-light.png");
+        logo.setAttribute("src", "/assets/img/revo-dark.png");
       }
     });
   }, [navbarRef]);

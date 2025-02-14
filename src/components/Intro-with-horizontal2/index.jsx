@@ -136,7 +136,7 @@ const IntroWithHorizontal2 = () => {
         <div className="side">
           <div className="logo-icon">
             <a className="logo" href="#">
-              <img src="/assets/img/logo-light.png" alt="logo" />
+              <img src="/assets/img/revo-dark.png" alt="logo" />
             </a>
           </div>
           <div className="swiper-pagination" ref={paginationRef}></div>

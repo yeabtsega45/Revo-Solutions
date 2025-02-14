@@ -1104,6 +1104,35 @@ body {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+.main-header {
+  position: relative;
+  margin: 0 auto 100px;
+}
+.main-header h3 {
+  font-weight: 700 !important;
+  font-size: 60px;
+  letter-spacing: 2px;
+}
+.main-header .tex-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  line-height: 1;
+  letter-spacing: 20px;
+  font-size: 8vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+  color: transparent;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  opacity: 0.03;
+}
 /* ====================== [ End Heading ] ====================== */
 /* ====================== [ Start Button Style ] ====================== */
 .btn-curve {
@@ -2039,6 +2068,26 @@ body {
   background: #fff;
   opacity: 0.94;
 }
+.about2 .main-tit h2 {
+  font-size: 45px;
+  font-weight: 700;
+}
+.about2 .content .exp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 30px;
+}
+.about2 .content .exp h3 {
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 1;
+}
+.about2 .content .exp h5 {
+  font-weight: 700;
+  padding-left: 30px;
+  margin-top: -20px;
+}
 .intro-section .item h6 {
   font-size: 13px;
   font-weight: 700;
@@ -2240,6 +2289,74 @@ body {
 }
 /* ====================== [ End Numbers & Counter ] ====================== */
 /* ====================== [ Start Work ] ====================== */
+.works .items {
+  margin-top: 100px;
+  padding: 0 50px;
+}
+.works .item {
+  position: relative;
+}
+.works .item:hover:after,
+.works .item:hover .cont {
+  opacity: 1;
+}
+.works .item:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(rgba(0, 0, 0, 0.7)),
+    to(rgba(0, 0, 0, 0.05))
+  );
+  background: -webkit-linear-gradient(
+    bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.05)
+  );
+  background: -o-linear-gradient(
+    bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.05)
+  );
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.05));
+  opacity: 0;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.works .item .cont {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  z-index: 2;
+  opacity: 0;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.works .item .cont.vis {
+  bottom: -1px;
+  left: -1px;
+  padding: 15px 30px;
+  padding-left: 15px;
+  background: #272727;
+  opacity: 1;
+}
+.works .item .cont h5 {
+  font-size: 17px;
+  color: white;
+}
+.works .item .cont span {
+  margin-right: 15px;
+  font-size: 13px;
+  color: #c5a47e;
+}
 .portfolio .filtering .filter {
   padding: 15px;
 }
@@ -2613,6 +2730,15 @@ body {
   line-height: 150px;
   position: relative;
   z-index: 3;
+}
+.process .item h4 {
+  font-size: 80px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  background-size: 50%;
+}
+.process .item h5 {
+  margin-bottom: 15px;
 }
 /* ====================== [ End services ] ====================== */
 /* ====================== [ Start progress bar ] ====================== */

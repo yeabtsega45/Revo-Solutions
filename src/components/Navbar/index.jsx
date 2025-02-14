@@ -89,6 +89,15 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
                     <i className="fas fa-moon"></i>
                   )}
                 </button>
+                {/* <label className="toggle-switch">
+                  <input
+                    type="checkbox"
+                    className="switch-checkbox"
+                    checked={isDarkMode}
+                    onChange={toggleTheme}
+                  />
+                  <span className="switch-slider"></span>
+                </label> */}
               </li>
             </ul>
           </div>
