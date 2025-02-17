@@ -11,8 +11,8 @@ export const works = [
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
     introImage: "/assets/img/works/col/Untitled-11.jpg",
     largeImages: [
-      { id: 1, src: "/assets/img/works/col/logoic-size-1.png" },
-      { id: 2, src: "/assets/img/works/col/logoic-size-2.png" },
+      { id: 1, src: "/assets/img/works/col/Untitled-1.png" },
+      { id: 2, src: "/assets/img/works/col/x.png" },
     ],
     smallImages: [
       { id: 1, src: "/assets/img/works/col/logic-mockup-size.png" },

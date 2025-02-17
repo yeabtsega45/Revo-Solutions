@@ -3649,6 +3649,8 @@ body {
 
 .video-wrapper {
   min-height: 500px;
+  margin: 30px auto;
+  width: 90%;
 }
 .video-wrapper .vid {
   position: relative;
