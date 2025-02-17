@@ -11,7 +11,7 @@ const PlaceholderImage = ({ image }) => {
               !image ? "/assets/img/portfolio/project1/vid.jpg" : image
             })`,
           }}
-          data-overlay-dark="4"
+          // data-overlay-dark="4"
         ></div>
       </div>
     </section>

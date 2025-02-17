@@ -15,10 +15,14 @@ export const works = [
       { id: 2, src: "/assets/img/works/col/logoic-size-2.png" },
     ],
     smallImages: [
-      { id: 1, src: "/assets/img/portfolio/project1/1.jpg" },
-      { id: 2, src: "/assets/img/portfolio/project1/2.jpg" },
-      { id: 3, src: "/assets/img/portfolio/project1/6.jpg" },
-      { id: 4, src: "/assets/img/portfolio/project1/3.jpg" },
+      { id: 1, src: "/assets/img/works/col/logic-mockup-size.png" },
+      { id: 2, src: "/assets/img/works/col/logic-mockup-size-2.png" },
+      { id: 3, src: "/assets/img/works/col/logic-mockup-size-6.png" },
+      { id: 4, src: "/assets/img/works/col/logic-mockup-size-7.png" },
+      { id: 5, src: "/assets/img/works/col/logic-mockup-size-8.png" },
+      { id: 6, src: "/assets/img/works/col/logic-mockup-size-9.png" },
+      { id: 7, src: "/assets/img/works/col/logic-mockup-size-10.png" },
+      { id: 8, src: "/assets/img/works/col/logic-mockup-size-11.png" },
     ],
   },
   {

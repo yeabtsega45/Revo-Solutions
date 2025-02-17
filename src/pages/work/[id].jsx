@@ -41,20 +41,20 @@ const SingleWork = () => {
 
       <section className="projdtal">
         <div className="justified-gallery">
-          <div className="row">
-            <a href="#" className="col-lg-4 col-xl-3 col-md-12">
-              <img alt="" src="/assets/img/portfolio/project1/1.jpg" />
-            </a>
-            <a href="#" className="col-lg-4 col-xl-3 col-md-6">
-              <img alt="" src="/assets/img/portfolio/project1/2.jpg" />
-            </a>
-            <a href="#" className="col-lg-4 col-xl-3 col-md-6">
-              <img alt="" src="/assets/img/portfolio/project1/6.jpg" />
-            </a>
-            <a href="#" className="col-lg-4 col-xl-3 col-md-12">
-              <img alt="" src="/assets/img/portfolio/project1/3.jpg" />
-            </a>
-          </div>
+          <a href="#" className="col-md-6">
+            <img alt="" src={selectedWork.smallImages[0].src} />
+          </a>
+          <a href="#" className="col-md-6">
+            <img alt="" src={selectedWork.smallImages[1].src} />
+          </a>
+        </div>
+        <div className="justified-gallery">
+          <a href="#" className="col-md-6">
+            <img alt="" src={selectedWork.smallImages[2].src} />
+          </a>
+          <a href="#" className="col-md-6">
+            <img alt="" src={selectedWork.smallImages[3].src} />
+          </a>
         </div>
       </section>
 
@@ -63,11 +63,19 @@ const SingleWork = () => {
 
       <section className="projdtal">
         <div className="justified-gallery">
-          <a href="#" className="col-lg-4 col-xl-3 col-md-6">
-            <img alt="" src="/assets/img/portfolio/project1/8.jpg" />
+          <a href="#" className="col-md-6">
+            <img alt="" src={selectedWork.smallImages[4].src} />
           </a>
-          <a href="#" className="col-lg-4 col-xl-3 col-md-6">
-            <img alt="" src="/assets/img/portfolio/project1/9.jpg" />
+          <a href="#" className="col-md-6">
+            <img alt="" src={selectedWork.smallImages[5].src} />
+          </a>
+        </div>
+        <div className="justified-gallery">
+          <a href="#" className="col-md-6">
+            <img alt="" src={selectedWork.smallImages[6].src} />
+          </a>
+          <a href="#" className="col-md-6">
+            <img alt="" src={selectedWork.smallImages[7].src} />
           </a>
         </div>
       </section>
