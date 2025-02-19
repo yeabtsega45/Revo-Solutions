@@ -1,23 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import initIsotope from "../../common/initIsotope";
 import { workData } from "@/src/data/works";
+import dynamic from "next/dynamic";
 
 const WorkWithoutFilter = ({ vis }) => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
+  React.useEffect(() => {
+    setTimeout(() => {
+      if (window.Isotope) initIsotope();
+    }, 1000);
   }, []);
-
-  useEffect(() => {
-    if (isMounted) {
-      setTimeout(() => {
-        if (window.Isotope) initIsotope();
-      }, 500);
-    }
-  }, [isMounted]);
 
   return (
     <>
@@ -59,4 +52,6 @@ const WorkWithoutFilter = ({ vis }) => {
   );
 };
 
-export default WorkWithoutFilter;
+export default dynamic(() => Promise.resolve(WorkWithoutFilter), {
+  ssr: false,
+});
