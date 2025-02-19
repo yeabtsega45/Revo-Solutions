@@ -5274,6 +5274,15 @@ footer .item .copy-right p a {
   height: 100px;
 }
 
+.work-form .form-group .large-file {
+  width: 90%;
+  padding: 48px 32px;
+  color: #212121;
+  border: 1px solid #212121;
+  border-radius: 4px;
+  text-align: center;
+}
+
 .work-form .button-container {
   display: flex;
   justify-content: center;

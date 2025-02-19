@@ -3,7 +3,6 @@ import React from "react";
 import Link from "next/link";
 import initIsotope from "../../common/initIsotope";
 import { workData } from "@/src/data/works";
-import dynamic from "next/dynamic";
 
 const WorkWithoutFilter = ({ vis }) => {
   React.useEffect(() => {
@@ -52,6 +51,4 @@ const WorkWithoutFilter = ({ vis }) => {
   );
 };
 
-export default dynamic(() => Promise.resolve(WorkWithoutFilter), {
-  ssr: false,
-});
+export default WorkWithoutFilter;

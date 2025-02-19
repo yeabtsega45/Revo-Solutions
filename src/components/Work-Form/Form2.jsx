@@ -120,6 +120,14 @@ function WorkForm2() {
             />
           </div>
         </div>
+        <div className="form-group">
+          <input
+            type="file"
+            className="large-file"
+            name="image"
+            onChange={(e) => setData({ ...data, image: e.target.files[0] })}
+          />
+        </div>
         <div className="button-container">
           <button type="submit" className="button">
             Create
