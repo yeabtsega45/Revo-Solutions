@@ -5761,6 +5761,13 @@ footer .item .copy-right p a {
     height: 65vh;
     width: 40vw;
   }
+  .video-wrapper {
+    min-height: 0;
+    margin: 0 auto;
+  }
+  .bg-img.video-wrapper {
+    background-size: contain;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -5886,4 +5893,4 @@ footer .item .copy-right p a {
   }
 }
 
-/* ====================== [ End Responsive ] ====================== *
+/* ====================== [ End Responsive ] ====================== */

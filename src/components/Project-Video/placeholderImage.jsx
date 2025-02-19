@@ -5,7 +5,7 @@ const PlaceholderImage = ({ image }) => {
     <section>
       <div className="container-fluid">
         <div
-          className="video-wrapper section-padding bg-img parallaxie valign"
+          className="video-wrapper section-padding bg-img bg-center parallaxie valign"
           style={{
             backgroundImage: `url(${
               !image ? "/assets/img/portfolio/project1/vid.jpg" : image
