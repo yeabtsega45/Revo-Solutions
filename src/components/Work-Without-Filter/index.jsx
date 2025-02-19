@@ -1,15 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import initIsotope from "../../common/initIsotope";
 import { workData } from "@/src/data/works";
 
 const WorkWithoutFilter = ({ vis }) => {
-  React.useEffect(() => {
-    setTimeout(() => {
-      if (window.Isotope) initIsotope();
-    }, 1000);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (isMounted) {
+      setTimeout(() => {
+        if (window.Isotope) initIsotope();
+      }, 500);
+    }
+  }, [isMounted]);
 
   return (
     <>
