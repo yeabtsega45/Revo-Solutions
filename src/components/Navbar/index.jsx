@@ -73,7 +73,10 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
                   <a className="nav-link">Contact</a>
                 </Link>
               </li>
-              <li className="nav-item">
+
+              {/* Dark Mode Switch */}
+
+              {/* <li className="nav-item">
                 <div className="theme-switch">
                   <label className="switch">
                     🌙
@@ -85,7 +88,7 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
                     <span className="slider round"></span>☀️
                   </label>
                 </div>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

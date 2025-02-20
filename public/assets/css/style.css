@@ -2800,14 +2800,21 @@ body {
   padding: 0 15px;
 }
 
-.works .row {
-  margin-left: -50px;
-  margin-right: -50px;
+.works .gallery {
+  display: flex;
+  align-items: center;
+  gap: 100px;
 }
 
-.works .items {
-  margin-top: 100px;
-  padding: 0 50px;
+.work-col {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  width: 100%;
+}
+
+.work-col .items {
+  flex: 1;
 }
 
 .works .item {
@@ -5548,6 +5555,13 @@ footer .item .copy-right p a {
   }
   .block-sec .testim-box {
     margin-bottom: 120px;
+  }
+  .works .gallery {
+    flex-direction: column;
+    gap: 0px;
+  }
+  .work-col {
+    gap: 0px;
   }
   .works .items {
     margin-top: 50px;

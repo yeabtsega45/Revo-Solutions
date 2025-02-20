@@ -12,7 +12,7 @@ export const works = [
     introImage: "/assets/img/works/col/Untitled-11.jpg",
     largeImages: [
       { id: 1, src: "/assets/img/works/col/Untitled-1.png" },
-      { id: 2, src: "/assets/img/works/col/x.png" },
+      { id: 2, src: "/assets/img/works/col/logoic-size-2.png" },
     ],
     smallImages: [
       { id: 1, src: "/assets/img/works/col/logic-mockup-size.png" },
@@ -118,18 +118,6 @@ export const works = [
 export const workData = [
   {
     id: 1,
-    img: "/assets/img/works/1000-+-1188.png",
-    category: ["Website", "Modern"],
-    title: "Zelealem Eshetu Coffee",
-    client: "Zelealem Eshetu Coffee",
-    date: "6 August 2022",
-    tags: ["Minimal", "Modern", "Design"],
-    description:
-      "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
-    // images:[{"files"}]
-  },
-  {
-    id: 2,
     img: "/assets/img/works/last-27-image.png",
     category: ["Branding", "Modern"],
     title: "Twenty Seven Real Estate",
@@ -140,7 +128,7 @@ export const workData = [
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
   },
   {
-    id: 3,
+    id: 2,
     img: "/assets/img/works/rtr.png",
     category: ["Social Media", "Modern"],
     title: "Bet Afalagi",
@@ -149,6 +137,18 @@ export const workData = [
     tags: ["Minimal", "Modern", "Design"],
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
+  },
+  {
+    id: 3,
+    img: "/assets/img/works/1000-+-1188.png",
+    category: ["Website", "Modern"],
+    title: "Zelealem Eshetu Coffee",
+    client: "Zelealem Eshetu Coffee",
+    date: "6 August 2022",
+    tags: ["Minimal", "Modern", "Design"],
+    description:
+      "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
+    // images:[{"files"}]
   },
   {
     id: 4,
