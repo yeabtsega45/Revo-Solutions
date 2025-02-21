@@ -26,13 +26,13 @@ const SingleWork = () => {
 
   return (
     <MainLayout>
-      {selectedWork.title && (
+      {selectedWork.client && (
         <PageHeader
-          title={selectedWork.title}
+          title={selectedWork.client}
           fullPath={[
             { id: 1, name: "home", url: "/" },
             { id: 2, name: "work", url: "/work2" },
-            { id: 3, name: "project details", url: "/work/" + selectedWork.id },
+            { id: 3, name: "work details", url: "/work/" + selectedWork.id },
           ]}
           image={selectedWork.introImage}
         />
@@ -40,11 +40,11 @@ const SingleWork = () => {
 
       <ProjectIntro selectedWork={selectedWork} />
 
-      {selectedWork.largeImages.length >= 1 && (
+      {selectedWork.largeImages?.length >= 1 && (
         <PlaceholderImage image={selectedWork.largeImages[0].src} />
       )}
 
-      {selectedWork.smallImages.length >= 4 && (
+      {selectedWork.smallImages?.length >= 4 && (
         <section className="projdtal">
           <div className="justified-gallery">
             <a href="#" className="col-md-6">
@@ -67,11 +67,11 @@ const SingleWork = () => {
 
       {/* <ProjectVideo /> */}
 
-      {selectedWork.largeImages[1] && (
+      {selectedWork.largeImages?.length >= 2 && (
         <PlaceholderImage image={selectedWork.largeImages[1].src} />
       )}
 
-      {selectedWork.smallImages.length >= 8 && (
+      {selectedWork.smallImages?.length >= 8 && (
         <section className="projdtal">
           <div className="justified-gallery">
             <a href="#" className="col-md-6">

@@ -27,7 +27,7 @@ const ProjectIntro = ({ selectedWork }) => {
           )}
 
           {selectedWork.client && (
-            <div className="col-lg-3">
+            <div className="col-lg-4">
               <div className="item mt-30">
                 <h6>Client</h6>
                 <p>
@@ -38,7 +38,7 @@ const ProjectIntro = ({ selectedWork }) => {
           )}
 
           {selectedWork.category.length > 0 && (
-            <div className="col-lg-3">
+            <div className="col-lg-4">
               <div className="item mt-30">
                 <h6>Categories</h6>
                 <p>
@@ -54,7 +54,7 @@ const ProjectIntro = ({ selectedWork }) => {
           )}
 
           {selectedWork.tags && (
-            <div className="col-lg-3">
+            <div className="col-lg-4">
               <div className="item mt-30">
                 <h6>Tags</h6>
                 <p>

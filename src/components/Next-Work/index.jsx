@@ -32,7 +32,7 @@ const NextWork = ({ selectedWork }) => {
                       className="wow txt words chars splitting"
                       data-splitting
                     >
-                      <b>{nextWork.title}</b>
+                      <b>{nextWork.client}</b>
                     </h2>
                   </Split>
                 </a>
@@ -44,7 +44,7 @@ const NextWork = ({ selectedWork }) => {
       <div
         className="nxt-img bg-img"
         data-background="img/portfolio/project1/bg.jpg"
-        // style={{ backgroundImage: `url(${nextWork.img})` }}
+        style={{ backgroundImage: `url(${nextWork.introImage})` }}
       ></div>
     </section>
   );
