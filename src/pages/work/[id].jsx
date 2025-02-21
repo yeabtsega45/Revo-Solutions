@@ -3,12 +3,12 @@ import React, { useEffect } from "react";
 import MainLayout from "../../layouts/main";
 import PageHeader from "../../components/Page-header";
 import ProjectIntro from "../../components/Project-Intro";
-import NextProject from "../../components/Next-Project";
 // import ProjectVideo from "../../components/Project-Video";
 import { useRouter } from "next/router";
 import { works } from "@/src/data/works";
 import PlaceholderImage from "../../components/Project-Video/placeholderImage";
 import LoadingScreen from "@/src/components/Loading-Screen/loading-screen";
+import NextWork from "@/src/components/Next-Work";
 
 const SingleWork = () => {
   const router = useRouter();
@@ -26,61 +26,73 @@ const SingleWork = () => {
 
   return (
     <MainLayout>
-      <PageHeader
-        title={selectedWork.title}
-        fullPath={[
-          { id: 1, name: "home", url: "/" },
-          { id: 2, name: "work", url: "/work2" },
-          { id: 3, name: "project details", url: "/work/" + selectedWork.id },
-        ]}
-        image={selectedWork.introImage}
-      />
+      {selectedWork.title && (
+        <PageHeader
+          title={selectedWork.title}
+          fullPath={[
+            { id: 1, name: "home", url: "/" },
+            { id: 2, name: "work", url: "/work2" },
+            { id: 3, name: "project details", url: "/work/" + selectedWork.id },
+          ]}
+          image={selectedWork.introImage}
+        />
+      )}
+
       <ProjectIntro selectedWork={selectedWork} />
 
-      <PlaceholderImage image={selectedWork.largeImages[0].src} />
+      {selectedWork.largeImages.length >= 1 && (
+        <PlaceholderImage image={selectedWork.largeImages[0].src} />
+      )}
 
-      <section className="projdtal">
-        <div className="justified-gallery">
-          <a href="#" className="col-md-6">
-            <img alt="" src={selectedWork.smallImages[0].src} />
-          </a>
-          <a href="#" className="col-md-6">
-            <img alt="" src={selectedWork.smallImages[1].src} />
-          </a>
-        </div>
-        <div className="justified-gallery">
-          <a href="#" className="col-md-6">
-            <img alt="" src={selectedWork.smallImages[2].src} />
-          </a>
-          <a href="#" className="col-md-6">
-            <img alt="" src={selectedWork.smallImages[3].src} />
-          </a>
-        </div>
-      </section>
+      {selectedWork.smallImages.length >= 4 && (
+        <section className="projdtal">
+          <div className="justified-gallery">
+            <a href="#" className="col-md-6">
+              <img alt="" src={selectedWork.smallImages[0].src} />
+            </a>
+            <a href="#" className="col-md-6">
+              <img alt="" src={selectedWork.smallImages[1].src} />
+            </a>
+          </div>
+          <div className="justified-gallery">
+            <a href="#" className="col-md-6">
+              <img alt="" src={selectedWork.smallImages[2].src} />
+            </a>
+            <a href="#" className="col-md-6">
+              <img alt="" src={selectedWork.smallImages[3].src} />
+            </a>
+          </div>
+        </section>
+      )}
 
       {/* <ProjectVideo /> */}
-      <PlaceholderImage image={selectedWork.largeImages[1].src} />
 
-      <section className="projdtal">
-        <div className="justified-gallery">
-          <a href="#" className="col-md-6">
-            <img alt="" src={selectedWork.smallImages[4].src} />
-          </a>
-          <a href="#" className="col-md-6">
-            <img alt="" src={selectedWork.smallImages[5].src} />
-          </a>
-        </div>
-        <div className="justified-gallery">
-          <a href="#" className="col-md-6">
-            <img alt="" src={selectedWork.smallImages[6].src} />
-          </a>
-          <a href="#" className="col-md-6">
-            <img alt="" src={selectedWork.smallImages[7].src} />
-          </a>
-        </div>
-      </section>
+      {selectedWork.largeImages[1] && (
+        <PlaceholderImage image={selectedWork.largeImages[1].src} />
+      )}
 
-      <NextProject selectedWork={selectedWork} />
+      {selectedWork.smallImages.length >= 8 && (
+        <section className="projdtal">
+          <div className="justified-gallery">
+            <a href="#" className="col-md-6">
+              <img alt="" src={selectedWork.smallImages[4].src} />
+            </a>
+            <a href="#" className="col-md-6">
+              <img alt="" src={selectedWork.smallImages[5].src} />
+            </a>
+          </div>
+          <div className="justified-gallery">
+            <a href="#" className="col-md-6">
+              <img alt="" src={selectedWork.smallImages[6].src} />
+            </a>
+            <a href="#" className="col-md-6">
+              <img alt="" src={selectedWork.smallImages[7].src} />
+            </a>
+          </div>
+        </section>
+      )}
+
+      <NextWork selectedWork={selectedWork} />
     </MainLayout>
   );
 };

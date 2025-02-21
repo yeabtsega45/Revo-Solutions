@@ -5,7 +5,7 @@ export const works = [
     category: ["branding", "website"],
     client: "Logic TrueCare",
     title: "Logic TrueCare",
-    tags: ["Architecture", "Modern"],
+    tags: "Architecture, Modern",
     date: "6 August 2022",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
@@ -31,7 +31,7 @@ export const works = [
     category: ["ticket", "websites"],
     client: "Modern Townhouse",
     title: "Modern Townhouse",
-    tags: ["Architecture", "Modern"],
+    tags: "Architecture, Modern",
     date: "6 August 2022",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
@@ -42,7 +42,7 @@ export const works = [
     category: ["ticket", "digital"],
     client: "Modern Townhouse",
     title: "Modern Townhouse",
-    tags: ["Architecture", "Modern"],
+    tags: "Architecture, Modern",
     date: "6 August 2022",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
@@ -53,7 +53,7 @@ export const works = [
     category: ["ticket", "websites"],
     client: "Modern Townhouse",
     title: "Modern Townhouse",
-    tags: ["Architecture", "Modern"],
+    tags: "Architecture, Modern",
     date: "6 August 2022",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
@@ -64,7 +64,7 @@ export const works = [
     category: ["ticket", "branding"],
     client: "Modern Townhouse",
     title: "Modern Townhouse",
-    tags: ["Architecture", "Modern"],
+    tags: "Architecture, Modern",
     date: "6 August 2022",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
@@ -75,7 +75,7 @@ export const works = [
     category: ["ticket", "websites"],
     client: "Modern Townhouse",
     title: "Modern Townhouse",
-    tags: ["Architecture", "Modern"],
+    tags: "Architecture, Modern",
     date: "6 August 2022",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
@@ -86,7 +86,7 @@ export const works = [
     category: ["ticket", "websites"],
     client: "Modern Townhouse",
     title: "Modern Townhouse",
-    tags: ["Architecture", "Modern"],
+    tags: "Architecture, Modern",
     date: "6 August 2022",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
@@ -97,7 +97,7 @@ export const works = [
     category: ["ticket", "digital"],
     client: "Modern Townhouse",
     title: "Modern Townhouse",
-    tags: ["Architecture", "Modern"],
+    tags: "Architecture, Modern",
     date: "6 August 2022",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
@@ -108,7 +108,7 @@ export const works = [
     category: ["ticket", "websites"],
     client: "Modern Townhouse",
     title: "Modern Townhouse",
-    tags: ["Architecture", "Modern"],
+    tags: "Architecture, Modern",
     date: "6 August 2022",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
@@ -123,7 +123,7 @@ export const workData = [
     title: "Twenty Seven Real Estate",
     client: "Twenty Seven Real Estate",
     date: "6 August 2022",
-    tags: ["Minimal", "Modern", "Design"],
+    tags: "Minimal, Modern, Design",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
   },
@@ -134,7 +134,7 @@ export const workData = [
     title: "Bet Afalagi",
     client: "Envato.com",
     date: "6 August 2022",
-    tags: ["Minimal", "Modern", "Design"],
+    tags: "Minimal, Modern, Design",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
   },
@@ -145,7 +145,7 @@ export const workData = [
     title: "Zelealem Eshetu Coffee",
     client: "Zelealem Eshetu Coffee",
     date: "6 August 2022",
-    tags: ["Minimal", "Modern", "Design"],
+    tags: "Minimal, Modern, Design",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
     // images:[{"files"}]
@@ -157,7 +157,7 @@ export const workData = [
     title: "Ethio-Istanbul General Hospital",
     client: "Ethio-Istanbul General Hospital",
     date: "6 August 2022",
-    tags: ["Minimal", "Modern", "Design"],
+    tags: "Minimal, Modern, Design",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
   },
@@ -168,7 +168,7 @@ export const workData = [
     title: "Maya Speciality Dental Clinic",
     client: "Envato.com",
     date: "6 August 2022",
-    tags: ["Minimal", "Modern", "Design"],
+    tags: "Minimal, Modern, Design",
     description:
       "We are a Creative Agency & Startup Studio that provides Digital Products and Services turns to focus on client success. We specialize in user interface design, including front-end development which we consider to be an integral part.",
   },
