@@ -17,12 +17,37 @@ function WorkForm2() {
 
   const [imagePreview, setImagePreview] = useState(null);
   const [introImagePreview, setIntroImagePreview] = useState(null);
+  const [smallImagesPreview, setSmallImagesPreview] = useState([]);
+  const [largeImagesPreview, setLargeImagesPreview] = useState([]);
 
   //   const navigate = useNavigate();
 
   const handleFileChange = (e, type) => {
-    const file = e.target.files[0];
-    if (file) {
+    const files = e.target.files;
+    if (!files || !files.length) return;
+
+    if (type === "smallImages" || type === "largeImages") {
+      const newFiles = Array.from(files);
+      setData((prevData) => ({
+        ...prevData,
+        [type]: [...prevData[type], ...newFiles], // Append new images
+      }));
+
+      const previewUrls = newFiles.map((file) => URL.createObjectURL(file));
+
+      if (type === "smallImages") {
+        setSmallImagesPreview((prevPreviews) => [
+          ...prevPreviews,
+          ...previewUrls,
+        ]);
+      } else {
+        setLargeImagesPreview((prevPreviews) => [
+          ...prevPreviews,
+          ...previewUrls,
+        ]);
+      }
+    } else {
+      const file = files[0];
       setData((prevData) => ({ ...prevData, [type]: file }));
       const previewUrl = URL.createObjectURL(file);
       if (type === "image") {
@@ -40,11 +65,17 @@ function WorkForm2() {
     formdata.append("client", data.client);
     formdata.append("description", data.description);
     formdata.append("image", data.image);
-    formdata.append("category", data.category);
     formdata.append("tags", data.tags);
     formdata.append("introImage", data.introImage);
-    formdata.append("largeImages", data.largeImages);
-    formdata.append("smallImages", data.smallImages);
+
+    data.category.forEach((cat) => formdata.append("category", cat));
+    data.smallImages.forEach((img) => formdata.append("smallImages", img));
+    data.largeImages.forEach((img) => formdata.append("largeImages", img));
+
+    // Console log formdata as an object
+    const formDataObject = Object.fromEntries(formdata.entries());
+    console.log(formDataObject);
+
     axios
       .post("/work/create", formdata)
       .then((res) => {
@@ -173,10 +204,21 @@ function WorkForm2() {
                 type="file"
                 className="input-file"
                 name="smallImages"
-                onChange={(e) =>
-                  setData({ ...data, smallImages: e.target.files[0] })
-                }
+                multiple
+                onChange={(e) => handleFileChange(e, "smallImages")}
               />
+              {smallImagesPreview && smallImagesPreview.length > 0 && (
+                <div className="preview-container">
+                  {smallImagesPreview.map((src, index) => (
+                    <img
+                      key={index}
+                      src={src}
+                      alt={`Small Preview ${index}`}
+                      className="preview-image-multi"
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -187,10 +229,21 @@ function WorkForm2() {
               type="file"
               className="large-file"
               name="largeImages"
-              onChange={(e) =>
-                setData({ ...data, largeImages: e.target.files[0] })
-              }
+              multiple
+              onChange={(e) => handleFileChange(e, "largeImages")}
             />
+            {largeImagesPreview && largeImagesPreview.length > 0 && (
+              <div className="preview-container">
+                {largeImagesPreview.map((src, index) => (
+                  <img
+                    key={index}
+                    src={src}
+                    alt={`Large Preview ${index}`}
+                    className="preview-image-multi"
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
         <div className="button-container">
