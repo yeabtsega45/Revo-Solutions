@@ -11,12 +11,6 @@ const WorkThreeColumn = () => {
   const itemsPerPage = 6;
 
   useEffect(() => {
-    setTimeout(() => {
-      if (window.Isotope) initIsotope();
-    }, 1000);
-  }, []);
-
-  useEffect(() => {
     if (activeFilter === "*") {
       setFilteredWorks(works);
     } else {

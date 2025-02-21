@@ -14,7 +14,7 @@ const WorkWithoutFilter = ({ vis }) => {
             </div>
           </div>
 
-          <div className="gallery">
+          <div className="home-gallery">
             <div className="work-col">
               {workData.slice(0, 2).map((work, index) => (
                 <Link href={`/work2/${work.id}`} key={index} passHref>

@@ -71,7 +71,7 @@ const Footer = ({ classText }) => {
             </div>
           </div>
 
-          <div className="col-lg-4">
+          <div className="hidden-xs col-lg-4">
             <div className="item md-mb50">
               <div className="logo">
                 <img src="/assets/img/revo-dark.png" alt="" />

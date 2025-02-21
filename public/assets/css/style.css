@@ -2800,7 +2800,7 @@ body {
   padding: 0 15px;
 }
 
-.works .gallery {
+.works .home-gallery {
   display: flex;
   align-items: center;
   gap: 100px;
@@ -5605,7 +5605,7 @@ footer .item .copy-right p a {
   .block-sec .testim-box {
     margin-bottom: 120px;
   }
-  .works .gallery {
+  .works .home-gallery {
     flex-direction: column;
     gap: 0px;
   }
@@ -5839,6 +5839,9 @@ footer .item .copy-right p a {
   }
   .bg-img.video-wrapper {
     background-size: contain;
+  }
+  footer .hidden-xs {
+    display: none;
   }
 }
 
