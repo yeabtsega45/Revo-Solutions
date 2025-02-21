@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import axios from "axios";
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
@@ -9,22 +10,46 @@ function WorkForm2() {
     image: "",
     category: [],
     tags: "",
+    introImage: "",
+    largeImages: [],
+    smallImages: [],
   });
+
+  const [imagePreview, setImagePreview] = useState(null);
+  const [introImagePreview, setIntroImagePreview] = useState(null);
+
   //   const navigate = useNavigate();
+
+  const handleFileChange = (e, type) => {
+    const file = e.target.files[0];
+    if (file) {
+      setData((prevData) => ({ ...prevData, [type]: file }));
+      const previewUrl = URL.createObjectURL(file);
+      if (type === "image") {
+        setImagePreview(previewUrl);
+      } else if (type === "introImage") {
+        setIntroImagePreview(previewUrl);
+      }
+    }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(data);
     const formdata = new FormData();
     formdata.append("client", data.client);
     formdata.append("description", data.description);
     formdata.append("image", data.image);
     formdata.append("category", data.category);
     formdata.append("tags", data.tags);
+    formdata.append("introImage", data.introImage);
+    formdata.append("largeImages", data.largeImages);
+    formdata.append("smallImages", data.smallImages);
     axios
       .post("/work/create", formdata)
       .then((res) => {
-        // navigate("/work/add");
-        console.log(res);
+        // navigate("/admin");
+        // console.log(res);
       })
       .catch((err) => console.log(err));
   };
@@ -35,12 +60,22 @@ function WorkForm2() {
       <form className="form" onSubmit={handleSubmit}>
         <div className="form-fields">
           <div className="form-group">
-            <input
-              type="file"
-              className="input-file"
-              name="image"
-              onChange={(e) => setData({ ...data, image: e.target.files[0] })}
-            />
+            <label className="label">Image (800x637)</label>
+            <div className="input-wrapper">
+              <input
+                type="file"
+                className="input-file"
+                name="image"
+                onChange={(e) => handleFileChange(e, "image")}
+              />
+              {imagePreview && (
+                <img
+                  src={imagePreview}
+                  alt="Preview"
+                  className="preview-image"
+                />
+              )}
+            </div>
           </div>
           <div>
             <div className="form-group">
@@ -68,6 +103,26 @@ function WorkForm2() {
             </div>
           </div>
         </div>
+
+        <div className="form-group">
+          <label className="label">Intro Image (1920x1153)</label>
+          <div className="large-wrapper">
+            <input
+              type="file"
+              className="large-file"
+              name="introImage"
+              onChange={(e) => handleFileChange(e, "introImage")}
+            />
+            {introImagePreview && (
+              <img
+                src={introImagePreview}
+                alt="Preview"
+                className="preview-image"
+              />
+            )}
+          </div>
+        </div>
+
         <div className="form-fields">
           <div>
             <div className="form-group">
@@ -112,21 +167,31 @@ function WorkForm2() {
             </div>
           </div>
           <div className="form-group">
-            <input
-              type="file"
-              className="input-file"
-              name="image"
-              onChange={(e) => setData({ ...data, image: e.target.files[0] })}
-            />
+            <label className="label">8 Small Images (1920x853)</label>
+            <div className="input-wrapper">
+              <input
+                type="file"
+                className="input-file"
+                name="smallImages"
+                onChange={(e) =>
+                  setData({ ...data, smallImages: e.target.files[0] })
+                }
+              />
+            </div>
           </div>
         </div>
         <div className="form-group">
-          <input
-            type="file"
-            className="large-file"
-            name="image"
-            onChange={(e) => setData({ ...data, image: e.target.files[0] })}
-          />
+          <label className="label">2 Large Images (1918x647)</label>
+          <div className="large-wrapper">
+            <input
+              type="file"
+              className="large-file"
+              name="largeImages"
+              onChange={(e) =>
+                setData({ ...data, largeImages: e.target.files[0] })
+              }
+            />
+          </div>
         </div>
         <div className="button-container">
           <button type="submit" className="button">

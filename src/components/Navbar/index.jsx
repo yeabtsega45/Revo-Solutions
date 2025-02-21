@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import appData from "../../data/app.json";
 import getSiblings from "../../common/getSiblings";
-import { useTheme } from "../../contexts/ThemeContext";
+// import { useTheme } from "../../contexts/ThemeContext";
 
 const Navbar = ({ navbarRef, logoRef, logoClass }) => {
   const handleDropdown = (e) => {
@@ -29,7 +29,7 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
       .classList.toggle("show-with-trans");
   };
 
-  const { isDarkMode, toggleTheme } = useTheme();
+  // const { isDarkMode, toggleTheme } = useTheme();
 
   return (
     <>

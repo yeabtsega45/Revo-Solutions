@@ -5244,16 +5244,74 @@ footer .item .copy-right p a {
 .work-form .form-group {
   display: flex;
   flex-direction: column;
+  position: relative;
+  margin-bottom: 20px;
 }
 
-.work-form .form-group .input-file {
-  width: 300px;
-  padding: 96px 32px;
+.work-form .form-group .label {
+  margin-bottom: 8px;
+}
+
+.work-form .form-group .input-file,
+.work-form .form-group .large-file {
   color: #212121;
   border: 1px solid #212121;
   border-radius: 4px;
   text-align: center;
+  z-index: 10;
+  position: relative;
+  background: transparent;
 }
+
+.work-form .form-group .input-wrapper {
+  position: relative;
+  width: 300px;
+  height: 200px;
+}
+
+.work-form .form-group .large-wrapper {
+  position: relative;
+  width: 90%;
+  height: 160px;
+}
+
+.work-form .form-group .input-file {
+  width: 100%;
+  height: 100%;
+  padding: 80px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-form .form-group .large-file {
+  width: 100%;
+  height: 100%;
+  padding: 60px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-form .form-group .preview-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 4px;
+}
+
+/* .work-form .form-group .preview-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #c5a47e;
+} */
 
 .work-form .form-group .label {
   color: #212121;
@@ -5281,19 +5339,10 @@ footer .item .copy-right p a {
   height: 100px;
 }
 
-.work-form .form-group .large-file {
-  width: 90%;
-  padding: 48px 32px;
-  color: #212121;
-  border: 1px solid #212121;
-  border-radius: 4px;
-  text-align: center;
-}
-
 .work-form .button-container {
   display: flex;
   justify-content: center;
-  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .work-form .button {
@@ -5916,4 +5965,4 @@ footer .item .copy-right p a {
   }
 }
 
-/* ====================== [ End Responsive ] ====================== */
+/* ====================== [ End Responsive ] ====================== *

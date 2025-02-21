@@ -5,11 +5,12 @@ import LoadingScreen from "../components/Loading-Screen/loading-screen";
 import "../styles/globals.css";
 import Cursor from "../components/Cursor";
 import ScrollToTop from "../components/scrollToTop";
-import { ThemeProvider } from "../contexts/ThemeContext";
+// import { ThemeProvider } from "../contexts/ThemeContext";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider>
+    <>
+      {/* <ThemeProvider> */}
       <Head>
         <title>Revo</title>
         <meta
@@ -37,7 +38,8 @@ function MyApp({ Component, pageProps }) {
       <Script id="isotope" src="/assets/js/isotope.pkgd.min.js"></Script>
 
       <Script src="/assets/js/main.js" id="init" strategy="lazyOnload"></Script>
-    </ThemeProvider>
+      {/* </ThemeProvider> */}
+    </>
   );
 }
 
