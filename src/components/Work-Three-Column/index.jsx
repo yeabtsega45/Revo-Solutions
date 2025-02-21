@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import initIsotope from "../../common/initIsotope";
 import { works } from "@/src/data/works";
 
 const WorkThreeColumn = () => {
@@ -14,7 +13,9 @@ const WorkThreeColumn = () => {
     if (activeFilter === "*") {
       setFilteredWorks(works);
     } else {
-      setFilteredWorks(works.filter((work) => work.category === activeFilter));
+      setFilteredWorks(
+        works.filter((work) => work.category.includes(activeFilter))
+      );
     }
     setCurrentPage(1);
   }, [activeFilter]);
@@ -52,31 +53,31 @@ const WorkThreeColumn = () => {
             <div className="filter">
               <span
                 data-filter="*"
-                className="active"
+                className={activeFilter === "*" ? "active" : ""}
                 onClick={() => handleFilterClick("*")}
               >
                 All
               </span>
               <span
-                data-filter=".digital"
+                className={activeFilter === "digital" ? "active" : ""}
                 onClick={() => handleFilterClick("digital")}
               >
                 Digital Marketing
               </span>
               <span
-                data-filter=".branding"
+                className={activeFilter === "branding" ? "active" : ""}
                 onClick={() => handleFilterClick("branding")}
               >
                 Branding
               </span>
               <span
-                data-filter=".websites"
+                className={activeFilter === "websites" ? "active" : ""}
                 onClick={() => handleFilterClick("websites")}
               >
                 Websites
               </span>
               <span
-                data-filter=".ticket"
+                className={activeFilter === "ticket" ? "active" : ""}
                 onClick={() => handleFilterClick("ticket")}
               >
                 Ticket System
