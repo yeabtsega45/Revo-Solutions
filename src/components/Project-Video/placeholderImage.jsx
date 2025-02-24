@@ -1,6 +1,6 @@
 import React from "react";
 
-const PlaceholderImage = ({ image }) => {
+const PlaceholderImage = ({ image, onClick }) => {
   return (
     <section>
       <div className="container-fluid">
@@ -11,7 +11,7 @@ const PlaceholderImage = ({ image }) => {
               !image ? "/assets/img/portfolio/project1/vid.jpg" : image
             })`,
           }}
-          // data-overlay-dark="4"
+          onClick={onClick}
         ></div>
       </div>
     </section>
