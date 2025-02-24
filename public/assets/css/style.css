@@ -2778,6 +2778,12 @@ body {
   max-width: 1300px;
 }
 
+.works.three-col .title {
+  color: #212121;
+  border-bottom: 2px solid #c5a47e;
+  padding-bottom: 4px;
+}
+
 .works.three-col .row {
   margin-left: -10px;
   margin-right: -10px;
@@ -2880,6 +2886,20 @@ body {
   font-size: 13px;
   color: #c5a47e;
 }
+.works.three-col .container .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.works.three-col .container .me-2 {
+  color: #212121;
+  border: 1px solid;
+  padding: 4px 16px;
+}
+.works.three-col .container .me-2:hover {
+  color: white;
+  background-color: #c5a47e;
+}
+
 .works .pagination {
   display: flex;
   justify-content: center;
