@@ -1053,6 +1053,23 @@ span:hover {
   transition-delay: 0.5s;
 }
 
+/* Error Screen */
+.error-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 20px;
+}
+.error-screen h4 {
+  border-right: 1px solid gray;
+  color: #000 !important;
+  padding-right: 20px;
+}
+.error-screen p {
+  color: #000;
+}
+
 /* ====================== [ End Preloader ] ====================== */
 /* ====================== [ Start Text Animation & Images ] ====================== */
 .splitting.animated .char {

@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import axios from "axios";
+import { useRouter } from "next/router";
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
 
 function WorkForm2() {
   const [data, setData] = useState({
     client: "",
     description: "",
     image: "",
-    category: [],
+    categories: [],
     tags: "",
     introImage: "",
     largeImages: [],
@@ -20,7 +20,7 @@ function WorkForm2() {
   const [smallImagesPreview, setSmallImagesPreview] = useState([]);
   const [largeImagesPreview, setLargeImagesPreview] = useState([]);
 
-  //   const navigate = useNavigate();
+  const router = useRouter();
 
   const handleFileChange = (e, type) => {
     const files = e.target.files;
@@ -68,7 +68,7 @@ function WorkForm2() {
     formdata.append("tags", data.tags);
     formdata.append("introImage", data.introImage);
 
-    data.category.forEach((cat) => formdata.append("category", cat));
+    data.categories.forEach((cat) => formdata.append("categories", cat));
     data.smallImages.forEach((img) => formdata.append("smallImages", img));
     data.largeImages.forEach((img) => formdata.append("largeImages", img));
 
@@ -77,10 +77,14 @@ function WorkForm2() {
     console.log(formDataObject);
 
     axios
-      .post("/work/create", formdata)
+      .post("/work/create", formdata, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((res) => {
-        // navigate("/admin");
-        // console.log(res);
+        router.push("/admin");
+        console.log(res);
       })
       .catch((err) => console.log(err));
   };
@@ -166,14 +170,14 @@ function WorkForm2() {
                         type="checkbox"
                         className="checkbox"
                         value={categoryItem}
-                        checked={data.category.includes(categoryItem)}
+                        checked={data.categories.includes(categoryItem)}
                         onChange={(e) => {
                           const isChecked = e.target.checked;
                           setData((prevData) => ({
                             ...prevData,
-                            category: isChecked
-                              ? [...prevData.category, categoryItem]
-                              : prevData.category.filter(
+                            categories: isChecked
+                              ? [...prevData.categories, categoryItem]
+                              : prevData.categories.filter(
                                   (item) => item !== categoryItem
                                 ),
                           }));

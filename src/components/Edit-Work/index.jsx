@@ -1,10 +1,31 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { works } from "@/src/data/works";
 import axios from "axios";
+import LoadingScreen from "../Loading-Screen/loading-screen";
+import ErrorScreen from "../Error-Screen/error-screen";
 
 const EditWork = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  //get all works
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get("/work/get/all")
+      .then((res) => {
+        setData(res.data);
+        console.log(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+      });
+  }, []);
+
   // delete work
   const handleDelete = (id) => {
     axios
@@ -19,22 +40,38 @@ const EditWork = () => {
       .catch((err) => console.log(err));
   };
 
+  if (loading) {
+    return <LoadingScreen />;
+  }
+
+  if (error) {
+    return <ErrorScreen error={error} />;
+  }
+
   return (
     <>
       <section className="works filter-img three-col section-padding">
         <div className="container">
           <h2 className="title">Edit Works</h2>
           <div className="row gallery">
-            {works.map((work, index) => (
+            {data.map((work, index) => (
               <Link href={`/admin/edit/${work.id}`} key={index} passHref>
                 <div className="col-lg-4 col-md-6 items">
                   <div className="item">
                     <div className="img">
-                      <img src={work.imgSrc} alt={work.title} />
+                      <img
+                        src={`http://localhost:5000/images/${
+                          work.image || "/assets/img/works/col/1.jpg"
+                        }`}
+                        alt={work.client}
+                        onError={(e) => {
+                          e.target.src = "/assets/img/works/col/1.jpg"; // Fallback image
+                        }}
+                      />
                     </div>
                     <div className="cont">
-                      <h5>{work.title}</h5>
-                      {work.category.map((tag, index) => (
+                      <h5>{work.client}</h5>
+                      {work.categories.map((tag, index) => (
                         <span key={index}>{tag}</span>
                       ))}
                     </div>
