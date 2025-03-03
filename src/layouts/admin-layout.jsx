@@ -12,25 +12,25 @@ function AdminLayout({ children }) {
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get("/auth/admin", {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      })
-      .then((res) => {
-        if (res.data.Status === "Success") {
-          setIsLoggedIn(true);
-          console.log(res.data);
-        }
-      })
-      .catch((err) => {
-        // router.push("/admin");
-        console.log(err);
-      });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
+  // useEffect(() => {
+  //   axios
+  //     .get("/auth/admin", {
+  //       headers: {
+  //         Authorization: "Bearer " + token,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       if (res.data.Status === "Success") {
+  //         setIsLoggedIn(true);
+  //         console.log(res.data);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       // router.push("/admin");
+  //       console.log(err);
+  //     });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [token]);
 
   //   if (!isLoggedIn) {
   //     return <p>error</p>; // Render error if user is not an admin

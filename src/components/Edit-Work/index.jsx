@@ -22,22 +22,28 @@ const EditWork = () => {
       })
       .catch((err) => {
         console.log(err);
-        setError(err);
+        setError(err.message);
       });
   }, []);
 
   // delete work
   const handleDelete = (id) => {
     axios
-      .delete("/work/delete/" + id, {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      })
+      .delete(
+        "/work/delete/" + id
+        //   , {
+        //   headers: {
+        //     Authorization: "Bearer " + token,
+        //   },
+        // }
+      )
       .then((res) => {
         window.location.reload(true);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setError(err.response.data.error);
+      });
   };
 
   if (loading) {
@@ -55,8 +61,8 @@ const EditWork = () => {
           <h2 className="title">Edit Works</h2>
           <div className="row gallery">
             {data.map((work, index) => (
-              <Link href={`/admin/edit/${work.id}`} key={index} passHref>
-                <div className="col-lg-4 col-md-6 items">
+              <div key={index} className="col-lg-4 col-md-6 items">
+                <Link href={`/admin/edit/${work.id}`} passHref>
                   <div className="item">
                     <div className="img">
                       <img
@@ -76,19 +82,19 @@ const EditWork = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="buttons">
-                    <Link href={`/admin/edit/` + work.id} passHref>
-                      <button className="btn btn-sm me-2">edit</button>
-                    </Link>
-                    <button
-                      onClick={() => handleDelete(work.id)}
-                      className="btn btn-sm btn-danger"
-                    >
-                      delete
-                    </button>
-                  </div>
+                </Link>
+                <div className="buttons">
+                  <Link href={`/admin/edit/` + work.id} passHref>
+                    <button className="btn btn-sm me-2">edit</button>
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(work.id)}
+                    className="btn btn-sm btn-danger"
+                  >
+                    delete
+                  </button>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>

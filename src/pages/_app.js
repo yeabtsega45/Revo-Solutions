@@ -8,7 +8,7 @@ import ScrollToTop from "../components/scrollToTop";
 // import { ThemeProvider } from "../contexts/ThemeContext";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://192.168.1.6:5000";
+axios.defaults.baseURL = "http://localhost:5000";
 
 function MyApp({ Component, pageProps }) {
   return (
