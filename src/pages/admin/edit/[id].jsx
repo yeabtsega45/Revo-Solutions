@@ -1,11 +1,11 @@
 import React from "react";
-import WorkForm from "@/src/components/Work-Form/Form1";
 import AdminLayout from "@/src/layouts/admin-layout";
+import EditWorkForm from "@/src/components/Work-Form/editWorkForm";
 
 function EditWork() {
   return (
     <AdminLayout>
-      <WorkForm />
+      <EditWorkForm />
     </AdminLayout>
   );
 }

@@ -1,9 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function WorkForm() {
+function CreateWorkForm() {
   const [data, setData] = useState({
     client: "",
     description: "",
@@ -21,43 +23,6 @@ function WorkForm() {
   const [largeImagesPreview, setLargeImagesPreview] = useState([]);
 
   const router = useRouter();
-  const { id } = router.query;
-  // const token = localStorage.getItem("token");
-
-  useEffect(() => {
-    if (id) {
-      axios
-        .get("/work/get/" + id)
-        .then((res) => {
-          console.log(id);
-
-          setData({
-            ...data,
-            client: res.data.client,
-            description: res.data.description,
-            categories: res.data.categories,
-            tags: res.data.tags,
-            // Keep the file inputs empty but store URLs separately
-            image: "",
-            introImage: "",
-            largeImages: [],
-            smallImages: [],
-          });
-
-          console.log(res.data);
-
-          // Set preview images from the fetched URLs
-          setImagePreview(res.data.image);
-          setIntroImagePreview(res.data.introImage);
-          setSmallImagesPreview(res.data.smallImages || []);
-          setLargeImagesPreview(res.data.largeImages || []);
-        })
-        .catch((err) => console.log(err));
-    } else {
-      console.log("Work ID is undefined");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
 
   const handleFileChange = (e, type) => {
     const files = e.target.files;
@@ -67,15 +32,21 @@ function WorkForm() {
       const newFiles = Array.from(files);
       setData((prevData) => ({
         ...prevData,
-        [type]: [...newFiles], // Replace existing files
+        [type]: [...prevData[type], ...newFiles], // Append new images
       }));
 
       const previewUrls = newFiles.map((file) => URL.createObjectURL(file));
 
       if (type === "smallImages") {
-        setSmallImagesPreview(previewUrls); // Replace existing previews
+        setSmallImagesPreview((prevPreviews) => [
+          ...prevPreviews,
+          ...previewUrls,
+        ]);
       } else {
-        setLargeImagesPreview(previewUrls); // Replace existing previews
+        setLargeImagesPreview((prevPreviews) => [
+          ...prevPreviews,
+          ...previewUrls,
+        ]);
       }
     } else {
       const file = files[0];
@@ -89,27 +60,15 @@ function WorkForm() {
     }
   };
 
-  const handleCategoryChange = (categoryItem, isChecked) => {
-    setData((prevData) => ({
-      ...prevData,
-      categories: isChecked
-        ? [...prevData.categories, categoryItem]
-        : prevData.categories.filter((item) => item !== categoryItem),
-    }));
-  };
-
-  // Update a work by id
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(data);
     const formdata = new FormData();
     formdata.append("client", data.client);
     formdata.append("description", data.description);
+    formdata.append("image", data.image);
     formdata.append("tags", data.tags);
-
-    // Only append new files if they were selected
-    if (data.image) formdata.append("image", data.image);
-    if (data.introImage) formdata.append("introImage", data.introImage);
+    formdata.append("introImage", data.introImage);
 
     data.categories.forEach((cat) => formdata.append("categories", cat));
     data.smallImages.forEach((img) => formdata.append("smallImages", img));
@@ -120,21 +79,33 @@ function WorkForm() {
     console.log(formDataObject);
 
     axios
-      .post("/work/edit", formdata, {
+      .post("/work/create", formdata, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
       .then((res) => {
+        toast.success(`Creating "${data.client}"!`, {
+          onClose: () => {
+            // Delay the reload to allow user to see the message
+            setTimeout(() => {
+              window.location.reload();
+            }, 3000);
+          },
+        });
         router.push("/admin");
         console.log(res);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.error(`Work creation failed. "${err.message}" Please try again.`);
+        console.log(err);
+      });
   };
 
   return (
     <div className="work-form">
-      <h2 className="title">Edit Work</h2>
+      <ToastContainer />
+      <h2 className="title">Create Work</h2>
       <form className="form" onSubmit={handleSubmit}>
         <div className="form-fields">
           <div className="form-group">
@@ -148,7 +119,7 @@ function WorkForm() {
               />
               {imagePreview && (
                 <img
-                  src={`http://localhost:5000/images/${imagePreview}`}
+                  src={imagePreview}
                   alt="Preview"
                   className="preview-image"
                 />
@@ -165,7 +136,6 @@ function WorkForm() {
                 placeholder="Client Name"
                 autoComplete="off"
                 onChange={(e) => setData({ ...data, client: e.target.value })}
-                value={data.client}
               />
             </div>
             <div className="form-group">
@@ -178,7 +148,6 @@ function WorkForm() {
                 onChange={(e) =>
                   setData({ ...data, description: e.target.value })
                 }
-                value={data.description}
               />
             </div>
           </div>
@@ -195,7 +164,7 @@ function WorkForm() {
             />
             {introImagePreview && (
               <img
-                src={`http://localhost:5000/images/${introImagePreview}`}
+                src={introImagePreview}
                 alt="Preview"
                 className="preview-image"
               />
@@ -216,9 +185,17 @@ function WorkForm() {
                         className="checkbox"
                         value={categoryItem}
                         checked={data.categories.includes(categoryItem)}
-                        onChange={(e) =>
-                          handleCategoryChange(categoryItem, e.target.checked)
-                        }
+                        onChange={(e) => {
+                          const isChecked = e.target.checked;
+                          setData((prevData) => ({
+                            ...prevData,
+                            categories: isChecked
+                              ? [...prevData.categories, categoryItem]
+                              : prevData.categories.filter(
+                                  (item) => item !== categoryItem
+                                ),
+                          }));
+                        }}
                       />
                       <span>{categoryItem}</span>
                     </label>
@@ -235,7 +212,6 @@ function WorkForm() {
                 placeholder="write tags separated with comma"
                 autoComplete="off"
                 onChange={(e) => setData({ ...data, tags: e.target.value })}
-                value={data.tags}
               />
             </div>
           </div>
@@ -254,7 +230,7 @@ function WorkForm() {
                   {smallImagesPreview.map((src, index) => (
                     <img
                       key={index}
-                      src={`http://localhost:5000/images/${src}`}
+                      src={src}
                       alt={`Small Preview ${index}`}
                       className="preview-image-multi"
                     />
@@ -279,7 +255,7 @@ function WorkForm() {
                 {largeImagesPreview.map((src, index) => (
                   <img
                     key={index}
-                    src={`http://localhost:5000/images/${src}`}
+                    src={src}
                     alt={`Large Preview ${index}`}
                     className="preview-image-multi"
                   />
@@ -290,7 +266,7 @@ function WorkForm() {
         </div>
         <div className="button-container">
           <button type="submit" className="button">
-            Update
+            Create
           </button>
         </div>
       </form>
@@ -298,4 +274,4 @@ function WorkForm() {
   );
 }
 
-export default WorkForm;
+export default CreateWorkForm;

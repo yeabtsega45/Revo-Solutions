@@ -4,6 +4,8 @@ import Link from "next/link";
 import axios from "axios";
 import LoadingScreen from "../Loading-Screen/loading-screen";
 import ErrorScreen from "../Error-Screen/error-screen";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const EditWork = () => {
   const [data, setData] = useState([]);
@@ -29,20 +31,21 @@ const EditWork = () => {
   // delete work
   const handleDelete = (id) => {
     axios
-      .delete(
-        "/work/delete/" + id
-        //   , {
-        //   headers: {
-        //     Authorization: "Bearer " + token,
-        //   },
-        // }
-      )
+      .delete("/work/delete/" + id)
       .then((res) => {
-        window.location.reload(true);
+        toast.success(`Deleting "${data.client}"!`, {
+          onClose: () => {
+            setTimeout(() => {
+              window.location.reload();
+            });
+          },
+        });
       })
       .catch((err) => {
         console.log(err);
-        setError(err.response.data.error);
+        toast.error(
+          `Error deleting course: "${err.message}". Please try again.`
+        );
       });
   };
 
@@ -56,6 +59,7 @@ const EditWork = () => {
 
   return (
     <>
+      <ToastContainer />
       <section className="works filter-img three-col section-padding">
         <div className="container">
           <h2 className="title">Edit Works</h2>
