@@ -27,6 +27,10 @@ function EditWorkForm() {
   const [smallImagesPreview, setSmallImagesPreview] = useState([]);
   const [largeImagesPreview, setLargeImagesPreview] = useState([]);
 
+  // Add these states to track existing images
+  const [existingSmallImages, setExistingSmallImages] = useState([]);
+  const [existingLargeImages, setExistingLargeImages] = useState([]);
+
   const router = useRouter();
   const { id } = router.query;
   // const token = localStorage.getItem("token");
@@ -60,6 +64,10 @@ function EditWorkForm() {
           setSmallImagesPreview(res.data.smallImages || []);
           setLargeImagesPreview(res.data.largeImages || []);
 
+          // Store existing image filenames
+          setExistingSmallImages(res.data.smallImages || []);
+          setExistingLargeImages(res.data.largeImages || []);
+
           setLoading(false);
         })
         .catch((err) => {
@@ -80,15 +88,15 @@ function EditWorkForm() {
       const newFiles = Array.from(files);
       setData((prevData) => ({
         ...prevData,
-        [type]: [...newFiles], // Replace existing files
+        [type]: [...prevData[type], ...newFiles],
       }));
 
-      const previewUrls = newFiles.map((file) => URL.createObjectURL(file));
+      const newPreviewUrls = newFiles.map((file) => URL.createObjectURL(file));
 
       if (type === "smallImages") {
-        setSmallImagesPreview(previewUrls); // Replace existing previews
+        setSmallImagesPreview((prev) => [...prev, ...newPreviewUrls]);
       } else {
-        setLargeImagesPreview(previewUrls); // Replace existing previews
+        setLargeImagesPreview((prev) => [...prev, ...newPreviewUrls]);
       }
     } else {
       const file = files[0];
@@ -125,6 +133,17 @@ function EditWorkForm() {
     if (data.introImage) formdata.append("introImage", data.introImage);
 
     data.categories.forEach((cat) => formdata.append("categories", cat));
+
+    // Append existing image filenames
+    existingSmallImages.forEach((filename) => {
+      formdata.append("existingSmallImages", filename);
+    });
+
+    existingLargeImages.forEach((filename) => {
+      formdata.append("existingLargeImages", filename);
+    });
+
+    // Append new files
     data.smallImages.forEach((img) => formdata.append("smallImages", img));
     data.largeImages.forEach((img) => formdata.append("largeImages", img));
 
@@ -139,15 +158,14 @@ function EditWorkForm() {
         },
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
         toast.success(`Updating "${data.client}"!`, {
           onClose: () => {
             setTimeout(() => {
-              window.location.reload();
+              router.push("/admin");
             });
           },
         });
-        router.push("/admin");
       })
       .catch((err) => {
         console.log(err);
@@ -183,7 +201,7 @@ function EditWorkForm() {
               {imagePreview && (
                 <img
                   src={`http://localhost:5000/images/${imagePreview}`}
-                  alt="Preview"
+                  alt="preview"
                   className="preview-image"
                 />
               )}
@@ -230,7 +248,7 @@ function EditWorkForm() {
             {introImagePreview && (
               <img
                 src={`http://localhost:5000/images/${introImagePreview}`}
-                alt="Preview"
+                alt="preview"
                 className="preview-image"
               />
             )}

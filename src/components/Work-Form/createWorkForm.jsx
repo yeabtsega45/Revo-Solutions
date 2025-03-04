@@ -87,13 +87,12 @@ function CreateWorkForm() {
       .then((res) => {
         toast.success(`Creating "${data.client}"!`, {
           onClose: () => {
-            // Delay the reload to allow user to see the message
+            // Delay to allow user to see the message
             setTimeout(() => {
-              window.location.reload();
+              router.push("/admin");
             }, 3000);
           },
         });
-        router.push("/admin");
         console.log(res);
       })
       .catch((err) => {
