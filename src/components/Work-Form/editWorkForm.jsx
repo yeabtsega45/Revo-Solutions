@@ -94,20 +94,46 @@ function EditWorkForm() {
       const newPreviewUrls = newFiles.map((file) => URL.createObjectURL(file));
 
       if (type === "smallImages") {
-        setSmallImagesPreview((prev) => [...prev, ...newPreviewUrls]);
+        setSmallImagesPreview((prev) => {
+          // Filter out existing image paths and add new preview URLs
+          const filteredPrev = prev.filter((url) => url.startsWith("http"));
+          return [...filteredPrev, ...newPreviewUrls];
+        });
       } else {
-        setLargeImagesPreview((prev) => [...prev, ...newPreviewUrls]);
+        setLargeImagesPreview((prev) => {
+          const filteredPrev = prev.filter((url) => url.startsWith("http"));
+          return [...filteredPrev, ...newPreviewUrls];
+        });
       }
     } else {
       const file = files[0];
       setData((prevData) => ({ ...prevData, [type]: file }));
       const previewUrl = URL.createObjectURL(file);
+
       if (type === "image") {
+        // For single image uploads, directly set the new preview
         setImagePreview(previewUrl);
       } else if (type === "introImage") {
         setIntroImagePreview(previewUrl);
       }
     }
+  };
+
+  const renderPreviewImage = (src) => {
+    if (!src) return null;
+
+    // If it's a URL object (new file upload)
+    if (src.startsWith("blob:")) {
+      return <img src={src} alt="preview" className="preview-image" />;
+    }
+    // If it's an existing image from the server
+    return (
+      <img
+        src={`http://localhost:5000/images/${src}`}
+        alt="preview"
+        className="preview-image"
+      />
+    );
   };
 
   const handleCategoryChange = (categoryItem, isChecked) => {
@@ -198,13 +224,7 @@ function EditWorkForm() {
                 name="image"
                 onChange={(e) => handleFileChange(e, "image")}
               />
-              {imagePreview && (
-                <img
-                  src={`http://localhost:5000/images/${imagePreview}`}
-                  alt="preview"
-                  className="preview-image"
-                />
-              )}
+              {imagePreview && renderPreviewImage(imagePreview)}
             </div>
           </div>
           <div>
@@ -245,13 +265,7 @@ function EditWorkForm() {
               name="introImage"
               onChange={(e) => handleFileChange(e, "introImage")}
             />
-            {introImagePreview && (
-              <img
-                src={`http://localhost:5000/images/${introImagePreview}`}
-                alt="preview"
-                className="preview-image"
-              />
-            )}
+            {introImagePreview && renderPreviewImage(introImagePreview)}
           </div>
         </div>
 
@@ -306,7 +320,11 @@ function EditWorkForm() {
                   {smallImagesPreview.map((src, index) => (
                     <img
                       key={index}
-                      src={`http://localhost:5000/images/${src}`}
+                      src={
+                        src.startsWith("blob:")
+                          ? src
+                          : `http://localhost:5000/images/${src}`
+                      }
                       alt={`Small Preview ${index}`}
                       className="preview-image-multi"
                     />
@@ -331,7 +349,11 @@ function EditWorkForm() {
                 {largeImagesPreview.map((src, index) => (
                   <img
                     key={index}
-                    src={`http://localhost:5000/images/${src}`}
+                    src={
+                      src.startsWith("blob:")
+                        ? src
+                        : `http://localhost:5000/images/${src}`
+                    }
                     alt={`Large Preview ${index}`}
                     className="preview-image-multi"
                   />
