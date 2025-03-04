@@ -2,37 +2,46 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import NoNavbar from "@/src/layouts/no-navbar";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
+
   const router = useRouter();
+
   axios.defaults.withCredentials = true;
-  const [error, setError] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("/auth/login", values)
+      .post("/user/login", values)
       .then((res) => {
-        if (res.status === 200) {
-          localStorage.setItem("token", res.data.token);
-          router.push("/admin");
-        }
+        localStorage.setItem("token", res.data.token);
+        toast.success(`Logging in "${values.email}"!`, {
+          onClose: () => {
+            setTimeout(() => {
+              router.push("/admin");
+            });
+          },
+        });
       })
       .catch((err) => {
-        setError("Wrong password");
+        toast.error(
+          `Error logging in: "${err.response.data.error}". Please try again.`
+        );
         console.log(err);
       });
   };
 
   return (
     <NoNavbar>
+      <ToastContainer />
       <div className="login">
         <div className="wrapper">
-          <div className="text-danger">{error}</div>
           <h2>Login</h2>
           <form onSubmit={handleSubmit}>
             <input

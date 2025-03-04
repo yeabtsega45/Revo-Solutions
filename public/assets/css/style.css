@@ -5144,10 +5144,10 @@ footer .item .copy-right p a {
   gap: 42px;
 }
 .login .wrapper form > input {
-  width: 50%;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid #333;
+  width: 60%;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #333;
 }
 .login .wrapper form > label {
   align-self: center;

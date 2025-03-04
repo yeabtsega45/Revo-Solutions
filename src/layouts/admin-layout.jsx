@@ -1,40 +1,53 @@
 /* eslint-disable @next/next/no-css-tags */
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import axios from "axios";
 import Sidebar from "@/src/components/Side-Bar/sidebar";
+import ErrorScreen from "../components/Error-Screen/error-screen";
+import LoadingScreen from "../components/Loading-Screen/loading-screen";
+import { useRouter } from "next/router";
 
 function AdminLayout({ children }) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const router = useRouter();
+
   axios.defaults.withCredentials = true;
+
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("/auth/admin", {
-  //       headers: {
-  //         Authorization: "Bearer " + token,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       if (res.data.Status === "Success") {
-  //         setIsLoggedIn(true);
-  //         console.log(res.data);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       // router.push("/admin");
-  //       console.log(err);
-  //     });
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [token]);
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get("/user/admin", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => {
+        setIsLoggedIn(true);
+        console.log(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err.response.data.message);
+        router.push("/login");
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
 
-  //   if (!isLoggedIn) {
-  //     return <p>error</p>; // Render error if user is not an admin
-  //   }
+  // if (loading) {
+  //   return <LoadingScreen />;
+  // }
+
+  // // Render error if user is not an admin
+  // if (!isLoggedIn) {
+  //   return <ErrorScreen error={error} />;
+  // }
 
   return (
     <>
