@@ -2,12 +2,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ErrorScreen from "@/src/components/Error-Screen/error-screen";
 import LoadingScreen from "@/src/components/Loading-Screen/loading-screen";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 const ReorderWork = () => {
   const [workList, setWorkList] = useState();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const router = useRouter();
 
   //get all works
   useEffect(() => {
@@ -38,10 +43,27 @@ const ReorderWork = () => {
   const handleSaveOrder = () => {
     const reorderedWorks = workList.map((work, index) => ({
       ...work,
-      id: index + 1, // Assign new sequential IDs
+      order: index + 1, // Assign new sequential IDs
     }));
 
-    updateWorkOrder(reorderedWorks);
+    axios
+      .put("/work/reorder/", reorderedWorks)
+      .then((res) => {
+        console.log(res.data);
+        toast.success("Reordering works", {
+          onClose: () => {
+            setTimeout(() => {
+              router.push("/admin");
+            });
+          },
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(
+          `Error reordering works: "${err.message}". Please try again.`
+        );
+      });
   };
 
   if (loading) {
@@ -54,6 +76,7 @@ const ReorderWork = () => {
 
   return (
     <div className="reorder-works">
+      <ToastContainer />
       <h2 className="title">Reorder Works</h2>
       {workList?.map((work, index) => (
         <div key={work.id} className="work">

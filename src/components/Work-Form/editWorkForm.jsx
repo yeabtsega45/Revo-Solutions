@@ -195,9 +195,7 @@ function EditWorkForm() {
       })
       .catch((err) => {
         console.log(err);
-        toast.error(
-          `Error updating course: "${err.message}". Please try again.`
-        );
+        toast.error(`Error updating work: "${err.message}". Please try again.`);
       });
   };
 
