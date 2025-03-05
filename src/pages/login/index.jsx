@@ -31,7 +31,7 @@ function Login() {
       })
       .catch((err) => {
         toast.error(
-          `Error logging in: "${err.response.data.error}". Please try again.`
+          `Error logging in: "${err.response?.data.error}". Please try again.`
         );
         console.log(err);
       });

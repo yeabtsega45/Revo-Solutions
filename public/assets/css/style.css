@@ -5461,6 +5461,82 @@ footer .item .copy-right p a {
   transform: translateX(20px);
 }
 
+/* Reorder Works */
+.reorder-works {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.reorder-works .title {
+  color: #212121;
+  border-bottom: 2px solid #c5a47e;
+  padding-bottom: 4px;
+  font-size: 24px;
+}
+
+.reorder-works .work {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.reorder-works .work:last-child {
+  border-bottom: none;
+}
+
+.reorder-works span {
+  color: #212121;
+  flex: 1;
+  font-size: 16px;
+}
+
+.reorder-works .client {
+  text-align: start;
+}
+
+.reorder-works button {
+  background-color: #a48868;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.reorder-works button:hover {
+  background-color: #c5a47e;
+}
+
+.reorder-works button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.reorder-works .save-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: #a48868;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reorder-works .save-button:hover {
+  background-color: #c5a47e;
+}
+
 /* ====================== [ End Footer ] ====================== */
 /* ====================== [ Start Responsive ] ====================== */
 @media screen and (max-width: 991px) {
