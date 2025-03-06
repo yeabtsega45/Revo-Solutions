@@ -31,9 +31,10 @@ function EditWorkForm() {
   const [existingSmallImages, setExistingSmallImages] = useState([]);
   const [existingLargeImages, setExistingLargeImages] = useState([]);
 
+  const [activeImage, setActiveImage] = useState(0);
+
   const router = useRouter();
   const { id } = router.query;
-  // const token = localStorage.getItem("token");
 
   useEffect(() => {
     if (id) {
@@ -88,30 +89,36 @@ function EditWorkForm() {
       const newFiles = Array.from(files);
       setData((prevData) => ({
         ...prevData,
-        [type]: [...prevData[type], ...newFiles],
+        [type]: [...prevData[type]], // Keep existing files
       }));
 
       const newPreviewUrls = newFiles.map((file) => URL.createObjectURL(file));
 
       if (type === "smallImages") {
         setSmallImagesPreview((prev) => {
-          // Filter out existing image paths and add new preview URLs
-          const filteredPrev = prev.filter((url) => url.startsWith("http"));
-          return [...filteredPrev, ...newPreviewUrls];
+          // Preserve existing image URLs and add new preview URLs
+          return [...prev, ...newPreviewUrls];
         });
+        setData((prevData) => ({
+          ...prevData,
+          smallImages: [...prevData.smallImages, ...newFiles], // Append new files
+        }));
       } else {
         setLargeImagesPreview((prev) => {
-          const filteredPrev = prev.filter((url) => url.startsWith("http"));
-          return [...filteredPrev, ...newPreviewUrls];
+          return [...prev, ...newPreviewUrls];
         });
+        setData((prevData) => ({
+          ...prevData,
+          largeImages: [...prevData.largeImages, ...newFiles], // Append new files
+        }));
       }
     } else {
       const file = files[0];
       setData((prevData) => ({ ...prevData, [type]: file }));
       const previewUrl = URL.createObjectURL(file);
 
+      // For single image uploads, directly set the new preview
       if (type === "image") {
-        // For single image uploads, directly set the new preview
         setImagePreview(previewUrl);
       } else if (type === "introImage") {
         setIntroImagePreview(previewUrl);
@@ -119,19 +126,19 @@ function EditWorkForm() {
     }
   };
 
-  const renderPreviewImage = (src) => {
+  const renderPreviewImage = (src, className) => {
     if (!src) return null;
 
     // If it's a URL object (new file upload)
     if (src.startsWith("blob:")) {
-      return <img src={src} alt="preview" className="preview-image" />;
+      return <img src={src} alt="preview" className={className} />;
     }
     // If it's an existing image from the server
     return (
       <img
         src={`http://localhost:5000/images/${src}`}
         alt="preview"
-        className="preview-image"
+        className={className}
       />
     );
   };
@@ -222,7 +229,8 @@ function EditWorkForm() {
                 name="image"
                 onChange={(e) => handleFileChange(e, "image")}
               />
-              {imagePreview && renderPreviewImage(imagePreview)}
+              {imagePreview &&
+                renderPreviewImage(imagePreview, "preview-image")}
             </div>
           </div>
           <div>
@@ -263,7 +271,8 @@ function EditWorkForm() {
               name="introImage"
               onChange={(e) => handleFileChange(e, "introImage")}
             />
-            {introImagePreview && renderPreviewImage(introImagePreview)}
+            {introImagePreview &&
+              renderPreviewImage(introImagePreview, "preview-image")}
           </div>
         </div>
 
@@ -290,30 +299,40 @@ function EditWorkForm() {
                 )}
               </div>
             </div>
-            <div className="form-group">
-              <label className="label">Tags</label>
-              <input
-                type="text"
-                className="input"
-                name="tags"
-                placeholder="write tags separated with comma"
-                autoComplete="off"
-                onChange={(e) => setData({ ...data, tags: e.target.value })}
-                value={data.tags}
-              />
-            </div>
           </div>
           <div className="form-group">
-            <label className="label">8 Small Images (1920x853)</label>
-            <div className="input-wrapper">
-              <input
-                type="file"
-                className="input-file"
-                name="smallImages"
-                multiple
-                onChange={(e) => handleFileChange(e, "smallImages")}
-              />
-              {smallImagesPreview && smallImagesPreview.length > 0 && (
+            <label className="label">Tags</label>
+            <input
+              type="text"
+              className="input"
+              name="tags"
+              placeholder="write tags separated with comma"
+              autoComplete="off"
+              onChange={(e) => setData({ ...data, tags: e.target.value })}
+              value={data.tags}
+            />
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label className="label-multi">8 Small Images (1920x853)</label>
+          <div>
+            <input
+              type="file"
+              name="smallImages"
+              multiple
+              onChange={(e) => handleFileChange(e, "smallImages")}
+            />
+
+            {smallImagesPreview && smallImagesPreview.length > 0 && (
+              <>
+                <div className="preview-main-container">
+                  {renderPreviewImage(
+                    smallImagesPreview[activeImage],
+                    "preview-main-image"
+                  )}
+                </div>
+
                 <div className="preview-container">
                   {smallImagesPreview.map((src, index) => (
                     <img
@@ -324,39 +343,59 @@ function EditWorkForm() {
                           : `http://localhost:5000/images/${src}`
                       }
                       alt={`Small Preview ${index}`}
-                      className="preview-image-multi"
+                      className={
+                        activeImage === index
+                          ? "preview-image-multi active-image"
+                          : "preview-image-multi"
+                      }
+                      onClick={() => setActiveImage(index)}
                     />
                   ))}
                 </div>
-              )}
-            </div>
+              </>
+            )}
           </div>
         </div>
+
         <div className="form-group">
-          <label className="label">2 Large Images (1918x647)</label>
-          <div className="large-wrapper">
+          <label className="label-multi">2 Large Images (1918x647)</label>
+          <div>
             <input
               type="file"
-              className="large-file"
               name="largeImages"
               multiple
               onChange={(e) => handleFileChange(e, "largeImages")}
             />
+
             {largeImagesPreview && largeImagesPreview.length > 0 && (
-              <div className="preview-container">
-                {largeImagesPreview.map((src, index) => (
-                  <img
-                    key={index}
-                    src={
-                      src.startsWith("blob:")
-                        ? src
-                        : `http://localhost:5000/images/${src}`
-                    }
-                    alt={`Large Preview ${index}`}
-                    className="preview-image-multi"
-                  />
-                ))}
-              </div>
+              <>
+                <div className="preview-main-container">
+                  {renderPreviewImage(
+                    largeImagesPreview[activeImage],
+                    "preview-main-image"
+                  )}
+                </div>
+
+                <div className="preview-container">
+                  {largeImagesPreview.map((src, index) => (
+                    <img
+                      key={index}
+                      src={
+                        src.startsWith("blob:")
+                          ? src
+                          : `http://localhost:5000/images/${src}`
+                      }
+                      alt={`Large Preview ${index}`}
+                      className={
+                        activeImage === index
+                          ? "preview-image-multi active-image"
+                          : "preview-image-multi"
+                      }
+                      onClick={() => setActiveImage(index)}
+                    />
+                  ))}
+                </div>
+              </>
             )}
           </div>
         </div>

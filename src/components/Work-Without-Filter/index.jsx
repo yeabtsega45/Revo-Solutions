@@ -24,10 +24,10 @@ const WorkWithoutFilter = ({ vis }) => {
                         <img src={work.img} alt={work.title} />
                       </div>
                       <div className={`cont ${vis ? "vis" : ""}`}>
+                        <h5>{work.title}</h5>
                         {work.category.map((cat, i) => (
                           <span key={i}>{cat}</span>
                         ))}
-                        <h5>{work.title}</h5>
                       </div>
                     </div>
                   </div>
@@ -44,10 +44,10 @@ const WorkWithoutFilter = ({ vis }) => {
                         <img src={work.img} alt={work.title} />
                       </div>
                       <div className={`cont ${vis ? "vis" : ""}`}>
+                        <h5>{work.title}</h5>
                         {work.category.map((cat, i) => (
                           <span key={i}>{cat}</span>
                         ))}
-                        <h5>{work.title}</h5>
                       </div>
                     </div>
                   </div>

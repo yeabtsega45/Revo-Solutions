@@ -2897,6 +2897,8 @@ body {
 }
 .works .item .cont h5 {
   font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 .works .item .cont span {
   margin-right: 15px;
@@ -5286,7 +5288,16 @@ footer .item .copy-right p a {
 }
 
 .work-form .form-group .label {
+  color: #212121;
   margin-bottom: 8px;
+  text-align: start;
+  font-weight: bold;
+}
+
+.work-form .form-group .label-multi {
+  color: #212121;
+  margin-bottom: 24px;
+  font-weight: bold;
 }
 
 .work-form .form-group .input-file,
@@ -5341,20 +5352,38 @@ footer .item .copy-right p a {
   border-radius: 4px;
 }
 
+.preview-main-container {
+  width: 100%;
+  height: auto;
+  margin: 24px 0;
+}
+
+.preview-main-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid #c5a47e;
+}
+
+.work-form .form-group .preview-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .work-form .form-group .preview-image-multi {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   margin-top: 8px;
   border-radius: 4px;
-  border: 1px solid #c5a47e;
+  cursor: pointer;
+  transition: border 0.2s ease;
 }
 
-.work-form .form-group .label {
-  color: #212121;
-  margin-bottom: 4px;
-  text-align: start;
-  font-weight: bold;
+.work-form .form-group .preview-image-multi.active-image {
+  border: 2px solid #c5a47e;
 }
 
 .work-form .form-group .input,
