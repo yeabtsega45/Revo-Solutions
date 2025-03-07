@@ -31,6 +31,10 @@ function EditWorkForm() {
   const [existingSmallImages, setExistingSmallImages] = useState([]);
   const [existingLargeImages, setExistingLargeImages] = useState([]);
 
+  // Add new state to track images to delete
+  const [smallImagesToDelete, setSmallImagesToDelete] = useState([]);
+  const [largeImagesToDelete, setLargeImagesToDelete] = useState([]);
+
   const [activeSmallImage, setActiveSmallImage] = useState(0);
   const [activeLargeImage, setActiveLargeImage] = useState(0);
 
@@ -219,6 +223,11 @@ function EditWorkForm() {
   // Delete a small or large image
   const handleDeleteImage = (index, type) => {
     if (type === "smallImages") {
+      // If the image is an existing one (from the server), add it to deletion list
+      if (!smallImagesPreview[index].startsWith("blob:")) {
+        setSmallImagesToDelete((prev) => [...prev, smallImagesPreview[index]]);
+      }
+
       const updatedSmallImagesPreview = smallImagesPreview.filter(
         (_, i) => i !== index
       );
@@ -236,6 +245,11 @@ function EditWorkForm() {
         setActiveSmallImage(activeSmallImage - 1);
       }
     } else if (type === "largeImages") {
+      // If the image is an existing one (from the server), add it to deletion list
+      if (!largeImagesPreview[index].startsWith("blob:")) {
+        setLargeImagesToDelete((prev) => [...prev, largeImagesPreview[index]]);
+      }
+
       const updatedLargeImagesPreview = largeImagesPreview.filter(
         (_, i) => i !== index
       );
@@ -270,18 +284,39 @@ function EditWorkForm() {
 
     data.categories.forEach((cat) => formdata.append("categories", cat));
 
-    // Append existing image filenames
-    existingSmallImages.forEach((filename) => {
-      formdata.append("existingSmallImages", filename);
+    // For existing images, send both filename and order
+    smallImagesPreview.forEach((filename, index) => {
+      if (filename.startsWith("blob:")) {
+        // This is a new file
+        formdata.append("smallImages", data.smallImages[index]);
+        formdata.append("smallImagesOrder", index.toString());
+      } else {
+        // This is an existing file
+        formdata.append("existingSmallImages", filename);
+        formdata.append("existingSmallImagesOrder", index.toString());
+      }
     });
 
-    existingLargeImages.forEach((filename) => {
-      formdata.append("existingLargeImages", filename);
+    largeImagesPreview.forEach((filename, index) => {
+      if (filename.startsWith("blob:")) {
+        // This is a new file
+        formdata.append("largeImages", data.largeImages[index]);
+        formdata.append("largeImagesOrder", index.toString());
+      } else {
+        // This is an existing file
+        formdata.append("existingLargeImages", filename);
+        formdata.append("existingLargeImagesOrder", index.toString());
+      }
     });
 
-    // Append new files
-    data.smallImages.forEach((img) => formdata.append("smallImages", img));
-    data.largeImages.forEach((img) => formdata.append("largeImages", img));
+    // Append images to delete
+    smallImagesToDelete.forEach((filename) => {
+      formdata.append("smallImagesToDelete", filename);
+    });
+
+    largeImagesToDelete.forEach((filename) => {
+      formdata.append("largeImagesToDelete", filename);
+    });
 
     // Console log formdata as an object
     const formDataObject = Object.fromEntries(formdata.entries());
