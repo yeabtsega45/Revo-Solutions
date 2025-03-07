@@ -31,7 +31,8 @@ function EditWorkForm() {
   const [existingSmallImages, setExistingSmallImages] = useState([]);
   const [existingLargeImages, setExistingLargeImages] = useState([]);
 
-  const [activeImage, setActiveImage] = useState(0);
+  const [activeSmallImage, setActiveSmallImage] = useState(0);
+  const [activeLargeImage, setActiveLargeImage] = useState(0);
 
   const router = useRouter();
   const { id } = router.query;
@@ -150,6 +151,108 @@ function EditWorkForm() {
         ? [...prevData.categories, categoryItem]
         : prevData.categories.filter((item) => item !== categoryItem),
     }));
+  };
+
+  // Reorder small and large images
+  const handleImageReorder = (fromIndex, toIndex, imageType) => {
+    if (toIndex < 0) return; // Prevent moving before first position
+
+    if (imageType === "smallImages") {
+      // Don't allow moving beyond array bounds
+      if (toIndex >= smallImagesPreview.length) return;
+
+      // Reorder preview images
+      const updatedPreviews = [...smallImagesPreview];
+      const [movedPreview] = updatedPreviews.splice(fromIndex, 1);
+      updatedPreviews.splice(toIndex, 0, movedPreview);
+      setSmallImagesPreview(updatedPreviews);
+
+      // Reorder actual image files
+      const updatedFiles = [...data.smallImages];
+      const [movedFile] = updatedFiles.splice(fromIndex, 1);
+      updatedFiles.splice(toIndex, 0, movedFile);
+      setData((prev) => ({
+        ...prev,
+        smallImages: updatedFiles,
+      }));
+
+      // Update active image index if needed
+      if (fromIndex === activeSmallImage) {
+        setActiveSmallImage(toIndex);
+      } else if (
+        (fromIndex < activeSmallImage && toIndex >= activeSmallImage) ||
+        (fromIndex > activeSmallImage && toIndex <= activeSmallImage)
+      ) {
+        setActiveSmallImage(activeSmallImage);
+      }
+    } else if (imageType === "largeImages") {
+      // Don't allow moving beyond array bounds
+      if (toIndex >= largeImagesPreview.length) return;
+
+      // Reorder preview images
+      const updatedPreviews = [...largeImagesPreview];
+      const [movedPreview] = updatedPreviews.splice(fromIndex, 1);
+      updatedPreviews.splice(toIndex, 0, movedPreview);
+      setLargeImagesPreview(updatedPreviews);
+
+      // Reorder actual image files
+      const updatedFiles = [...data.largeImages];
+      const [movedFile] = updatedFiles.splice(fromIndex, 1);
+      updatedFiles.splice(toIndex, 0, movedFile);
+      setData((prev) => ({
+        ...prev,
+        largeImages: updatedFiles,
+      }));
+
+      // Update active image index if needed
+      if (fromIndex === activeLargeImage) {
+        setActiveLargeImage(toIndex);
+      } else if (
+        (fromIndex < activeLargeImage && toIndex >= activeLargeImage) ||
+        (fromIndex > activeLargeImage && toIndex <= activeLargeImage)
+      ) {
+        setActiveLargeImage(activeLargeImage);
+      }
+    }
+  };
+
+  // Delete a small or large image
+  const handleDeleteImage = (index, type) => {
+    if (type === "smallImages") {
+      const updatedSmallImagesPreview = smallImagesPreview.filter(
+        (_, i) => i !== index
+      );
+      setSmallImagesPreview(updatedSmallImagesPreview);
+
+      const updatedSmallImages = data.smallImages.filter((_, i) => i !== index);
+      setData((prevData) => ({
+        ...prevData,
+        smallImages: updatedSmallImages,
+      }));
+
+      if (activeSmallImage === index) {
+        setActiveSmallImage(0);
+      } else if (activeSmallImage > index) {
+        setActiveSmallImage(activeSmallImage - 1);
+      }
+    } else if (type === "largeImages") {
+      const updatedLargeImagesPreview = largeImagesPreview.filter(
+        (_, i) => i !== index
+      );
+      setLargeImagesPreview(updatedLargeImagesPreview);
+
+      const updatedLargeImages = data.largeImages.filter((_, i) => i !== index);
+      setData((prevData) => ({
+        ...prevData,
+        largeImages: updatedLargeImages,
+      }));
+
+      if (activeLargeImage === index) {
+        setActiveLargeImage(0);
+      } else if (activeLargeImage > index) {
+        setActiveLargeImage(activeLargeImage - 1);
+      }
+    }
   };
 
   // Update a work by id
@@ -328,9 +431,47 @@ function EditWorkForm() {
               <>
                 <div className="preview-main-container">
                   {renderPreviewImage(
-                    smallImagesPreview[activeImage],
+                    smallImagesPreview[activeSmallImage],
                     "preview-main-image"
                   )}
+
+                  <div className="edit-buttons">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleImageReorder(
+                          activeSmallImage,
+                          activeSmallImage - 1,
+                          "smallImages"
+                        )
+                      }
+                    >
+                      ◄
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleImageReorder(
+                          activeSmallImage,
+                          activeSmallImage + 1,
+                          "smallImages"
+                        )
+                      }
+                    >
+                      ►
+                    </button>
+                  </div>
+
+                  <div className="delete-button">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleDeleteImage(activeSmallImage, "smallImages")
+                      }
+                    >
+                      🗑
+                    </button>
+                  </div>
                 </div>
 
                 <div className="preview-container">
@@ -344,11 +485,11 @@ function EditWorkForm() {
                       }
                       alt={`Small Preview ${index}`}
                       className={
-                        activeImage === index
+                        activeSmallImage === index
                           ? "preview-image-multi active-image"
                           : "preview-image-multi"
                       }
-                      onClick={() => setActiveImage(index)}
+                      onClick={() => setActiveSmallImage(index)}
                     />
                   ))}
                 </div>
@@ -371,9 +512,47 @@ function EditWorkForm() {
               <>
                 <div className="preview-main-container">
                   {renderPreviewImage(
-                    largeImagesPreview[activeImage],
+                    largeImagesPreview[activeLargeImage],
                     "preview-main-image"
                   )}
+
+                  <div className="edit-buttons">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleImageReorder(
+                          activeLargeImage,
+                          activeLargeImage - 1,
+                          "largeImages"
+                        )
+                      }
+                    >
+                      ◄
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleImageReorder(
+                          activeLargeImage,
+                          activeLargeImage + 1,
+                          "largeImages"
+                        )
+                      }
+                    >
+                      ►
+                    </button>
+                  </div>
+
+                  <div className="delete-button">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleDeleteImage(activeLargeImage, "largeImages")
+                      }
+                    >
+                      🗑
+                    </button>
+                  </div>
                 </div>
 
                 <div className="preview-container">
@@ -387,11 +566,11 @@ function EditWorkForm() {
                       }
                       alt={`Large Preview ${index}`}
                       className={
-                        activeImage === index
+                        activeLargeImage === index
                           ? "preview-image-multi active-image"
                           : "preview-image-multi"
                       }
-                      onClick={() => setActiveImage(index)}
+                      onClick={() => setActiveLargeImage(index)}
                     />
                   ))}
                 </div>
