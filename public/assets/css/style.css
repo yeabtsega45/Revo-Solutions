@@ -3652,7 +3652,7 @@ body {
   right: 0;
   bottom: 0;
   display: block;
-  background: #0a0a0a;
+  background: rgb(10, 10, 10, 0.5);
   opacity: 1;
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -3671,9 +3671,9 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  -webkit-transform: scale(1.4);
+  /* -webkit-transform: scale(1.4);
   -ms-transform: scale(1.4);
-  transform: scale(1.4);
+  transform: scale(1.4); */
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -3684,14 +3684,14 @@ body {
 .call-action.next:hover:before {
   opacity: 0.9;
 }
-.call-action.next:hover .nxt-img {
+/* .call-action.next:hover .nxt-img {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
   -webkit-transition: all 10s linear;
   -o-transition: all 10s linear;
   transition: all 10s linear;
-}
+} */
 
 .video-wrapper {
   min-height: 500px;

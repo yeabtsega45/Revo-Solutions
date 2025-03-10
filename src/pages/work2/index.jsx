@@ -13,11 +13,13 @@ const Work2 = () => {
       <WorkHeader
         center
         title={{
-          first: "Digital Management is a visual art,",
-          second: "and the solutions speak for themeselves.",
+          first: "Discover how we can help ",
+          second: "your business thrive!",
         }}
         // title = "text",
-        content="With the proper strategic orientation that is guided by our clients’ vision, we combine our supreme digital expertise with our ability to come up with out-of-the box solutions to produce genuine, lasting results."
+        content="With expert in web development, branding, 360˚ Marketing, and video production, we
+create tailored solutions that elevate your brand and drive results. Explore our work and
+see how we can help you achieve your goals!"
       />
       <WorkThreeColumn />
     </MainLayout>

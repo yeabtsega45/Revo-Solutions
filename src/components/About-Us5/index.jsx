@@ -10,7 +10,7 @@ const AboutUs5 = () => {
             <div className="main-tit">
               <Split>
                 <h2 className="wow words chars splitting" data-splitting>
-                  We Are The Leader <br /> In The Digital Marketing
+                  Let’s build, grow, and <br /> elevate your brand together!
                 </h2>
               </Split>
             </div>
@@ -19,10 +19,10 @@ const AboutUs5 = () => {
             <div className="content">
               <Split>
                 <p className="wow txt words chars splitting" data-splitting>
-                  We are in the business of creating effective digital solutions
-                  that move companies forward in their goals. We open up
-                  opportunities companies may not have yet considered in their
-                  growth strategy.
+                  We are a full-service digital agency specializing in web
+                  development, branding and 360˚ Marketing. With experience
+                  working with over 40 clients, we have successfully driven
+                  revenue growth through innovative digital solutions.
                 </p>
               </Split>
               <div className="exp">

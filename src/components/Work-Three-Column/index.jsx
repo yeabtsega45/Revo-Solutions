@@ -77,10 +77,10 @@ const WorkThreeColumn = () => {
                 Websites
               </span>
               <span
-                className={activeFilter === "ticket" ? "active" : ""}
-                onClick={() => handleFilterClick("ticket")}
+                className={activeFilter === "video" ? "active" : ""}
+                onClick={() => handleFilterClick("video")}
               >
-                Ticket System
+                Video Production
               </span>
             </div>
           </div>
